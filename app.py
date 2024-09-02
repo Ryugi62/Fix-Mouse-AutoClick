@@ -207,6 +207,12 @@ class UltraModernMidasLinker(QMainWindow):
             }
         """
 
+    def browse_file_with_extension(self, entry, extensions):
+        file_filter = f"Files ({' '.join(['*' + ext for ext in extensions])})"
+        filename, _ = QFileDialog.getOpenFileName(self, "파일 선택", "", file_filter)
+        if filename:
+            entry.setText(filename)
+
     def create_left_panel(self):
         left_panel = QFrame()
         left_panel.setObjectName("LeftPanel")
@@ -228,11 +234,14 @@ class UltraModernMidasLinker(QMainWindow):
             entry = QLineEdit()
             entry.setObjectName(f"{location}_entry")  # 위젯에 이름 부여
             entry.setPlaceholderText(f"{location} 파일 위치")
+            entry.setReadOnly(True)
             self.file_entries[location] = entry  # 딕셔너리에 저장
             button = QPushButton("찾아보기")
             button.setFixedWidth(90)
             button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-            button.clicked.connect(lambda _, e=entry: self.browse_file(e))
+            button.clicked.connect(
+                lambda _, e=entry: self.browse_file_with_extension(e, [".mgb", ".mdpb"])
+            )
 
             hlayout.addWidget(label)
             hlayout.addWidget(entry)
