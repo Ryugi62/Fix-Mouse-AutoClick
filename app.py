@@ -440,6 +440,7 @@ class UltraModernMidasLinker(QMainWindow):
             extracted_address, detailed_addresses = self.extract_address_from_path(
                 solar_path
             )
+            # 수정: 튜플에서 주소만 추출하여 설정
             self.address_entry.setText(extracted_address)
 
             # 상세 주소 콤보 박스 설정
@@ -490,7 +491,7 @@ class UltraModernMidasLinker(QMainWindow):
             return
 
         solar_path = self.file_entries["태양광"].text()
-        extracted_address = self.extract_address_from_path(solar_path)
+        extracted_address, _ = self.extract_address_from_path(solar_path)  # 수정: 튜플을 올바르게 해석
         self.address_entry.setText(extracted_address)
 
         checked_items = [cb.text() for cb in self.checkboxes if cb.isChecked()]
@@ -505,7 +506,11 @@ class UltraModernMidasLinker(QMainWindow):
             self.run_tasks(ordered_items)
 
     def run_tasks(self, ordered_items):
-        midas_file_creator.create_midas_data()
+        solar_path = self.file_entries["태양광"].text()
+        building_path = self.file_entries["건물"].text()
+        design_path = self.file_entries["디자인"].text()
+
+        midas_file_creator.create_midas_data(solar_path, building_path, design_path)
 
         for item in ordered_items:
             if item in self.task_functions:
