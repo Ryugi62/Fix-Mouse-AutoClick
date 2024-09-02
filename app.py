@@ -20,6 +20,7 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QCursor, QColor, QPalette
 import os
 import pyautogui
+import midas_file_creator
 
 
 class OrderDialog(QDialog):
@@ -323,6 +324,8 @@ class UltraModernMidasLinker(QMainWindow):
             self.run_tasks(ordered_items)
 
     def run_tasks(self, ordered_items):
+        midas_file_creator.create_midas_data()
+
         for item in ordered_items:
             if item in self.task_functions:
                 result = self.task_functions[item]()
