@@ -4,9 +4,12 @@ import subprocess
 import win32gui
 import win32process
 import psutil
+import run_macro
 
 
 def create_midas_data(solar_path, building_path, design_path):
+    macro = run_macro
+    
     for path in [solar_path, building_path, design_path]:
         if path is None:
             print("Path is not specified!")
@@ -17,6 +20,9 @@ def create_midas_data(solar_path, building_path, design_path):
         if process is None:
             print("Failed to open Midas Gen.")
             return
+        
+        # 자동 클릭
+        macro.run_macro_without_gui()
 
         # 프로세스가 종료
         process.terminate()  # 프로세스 종료

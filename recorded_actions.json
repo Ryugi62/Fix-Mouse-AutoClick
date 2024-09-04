@@ -1,0 +1,114 @@
+[
+    {
+        "type": "click",
+        "x": 580,
+        "y": 431,
+        "button": "Button.left",
+        "delay": 0.9172728061676025
+    },
+    {
+        "type": "click",
+        "x": 770,
+        "y": 462,
+        "button": "Button.left",
+        "delay": 0.6862325668334961
+    },
+    {
+        "type": "click",
+        "x": 872,
+        "y": 416,
+        "button": "Button.left",
+        "delay": 0.573836088180542
+    },
+    {
+        "type": "click",
+        "x": 1004,
+        "y": 367,
+        "button": "Button.left",
+        "delay": 0.5353281497955322
+    },
+    {
+        "type": "click",
+        "x": 1005,
+        "y": 367,
+        "button": "Button.left",
+        "delay": 0.0735476016998291
+    },
+    {
+        "type": "click",
+        "x": 1022,
+        "y": 478,
+        "button": "Button.left",
+        "delay": 0.43036341667175293
+    },
+    {
+        "type": "click",
+        "x": 1076,
+        "y": 390,
+        "button": "Button.left",
+        "delay": 0.48374295234680176
+    },
+    {
+        "type": "click",
+        "x": 1346,
+        "y": 187,
+        "button": "Button.left",
+        "delay": 1.7136728763580322
+    },
+    {
+        "type": "click",
+        "x": 1049,
+        "y": 447,
+        "button": "Button.left",
+        "delay": 1.0286362171173096
+    },
+    {
+        "type": "click",
+        "x": 1049,
+        "y": 446,
+        "button": "Button.left",
+        "delay": 0.0617978572845459
+    },
+    {
+        "type": "click",
+        "x": 897,
+        "y": 408,
+        "button": "Button.left",
+        "delay": 0.45296788215637207
+    },
+    {
+        "type": "click",
+        "x": 901,
+        "y": 507,
+        "button": "Button.left",
+        "delay": 0.5132312774658203
+    },
+    {
+        "type": "click",
+        "x": 901,
+        "y": 507,
+        "button": "Button.left",
+        "delay": 0.06386590003967285
+    },
+    {
+        "type": "click",
+        "x": 818,
+        "y": 496,
+        "button": "Button.left",
+        "delay": 0.43115806579589844
+    },
+    {
+        "type": "click",
+        "x": 737,
+        "y": 437,
+        "button": "Button.left",
+        "delay": 0.7763991355895996
+    },
+    {
+        "type": "click",
+        "x": 287,
+        "y": 286,
+        "button": "Button.left",
+        "delay": 1.0583007335662842
+    }
+]

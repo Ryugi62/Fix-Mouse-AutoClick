@@ -9,7 +9,7 @@ def run_macro_with_gui():
     gui_main()
 
 
-def run_macro_without_gui(file_path="test.json"):
+def run_macro_without_gui(file_path="recorded_actions.json"):
     # GUI 없이 매크로 실행
     macro = AutomationMacro()
     try:
