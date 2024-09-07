@@ -1,0 +1,254 @@
+[
+  {
+    "type": "click",
+    "x": 49,
+    "y": 238,
+    "button": "Button.right",
+    "delay": 1.866189956665039,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 122,
+    "y": 251,
+    "button": "Button.left",
+    "delay": 0.6917951107025146,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 315,
+    "y": 941,
+    "button": "Button.right",
+    "delay": 1.412050485610962,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 387,
+    "y": 876,
+    "button": "Button.left",
+    "delay": 0.7711822986602783,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 133,
+    "y": 476,
+    "button": "Button.right",
+    "delay": 1.3037476539611816,
+    "use_image_search": true,
+    "image_path": "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/supports.png",
+    "x_offset": 0,
+    "y_offset": 15,
+    "pre_click_condition": "None",
+    "pre_click_images": [""],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 191,
+    "y": 730,
+    "button": "Button.left",
+    "delay": 1.3228352069854736,
+    "use_image_search": true,
+    "image_path": "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/display.png",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": [""],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 50,
+    "y": 62,
+    "button": "Button.left",
+    "delay": 1.1452035903930664,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 91,
+    "y": 457,
+    "button": "Button.left",
+    "delay": 1.2077178955078125,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 792,
+    "y": 737,
+    "button": "Button.left",
+    "delay": 1.2552156448364258,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 793,
+    "y": 828,
+    "button": "Button.left",
+    "delay": 1.0842931270599365,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 783,
+    "y": 708,
+    "button": "Button.left",
+    "delay": 1.3204944133758545,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "keypress",
+    "key": "'b'",
+    "delay": 0.8965163230895996
+  },
+  {
+    "type": "keypress",
+    "key": "'o'",
+    "delay": 0.031348466873168945
+  },
+  {
+    "type": "keypress",
+    "key": "'u'",
+    "delay": 0.015623331069946289
+  },
+  {
+    "type": "keypress",
+    "key": "'n'",
+    "delay": 0.0949242115020752
+  },
+  {
+    "type": "keypress",
+    "key": "'d'",
+    "delay": 0.015324115753173828
+  },
+  {
+    "type": "keypress",
+    "key": "'a'",
+    "delay": 0.015592813491821289
+  },
+  {
+    "type": "keypress",
+    "key": "'r'",
+    "delay": 0.03124213218688965
+  },
+  {
+    "type": "keypress",
+    "key": "'i'",
+    "delay": 0.031662702560424805
+  },
+  {
+    "type": "keypress",
+    "key": "'e'",
+    "delay": 0.031244754791259766
+  },
+  {
+    "type": "keypress",
+    "key": "'s'",
+    "delay": 0.04686307907104492
+  },
+  {
+    "type": "keypress",
+    "key": "'.'",
+    "delay": 0.4253227710723877
+  },
+  {
+    "type": "keypress",
+    "key": "'j'",
+    "delay": 0.22035479545593262
+  },
+  {
+    "type": "keypress",
+    "key": "'p'",
+    "delay": 0.12567448616027832
+  },
+  {
+    "type": "keypress",
+    "key": "'g'",
+    "delay": 0.10979247093200684
+  },
+  {
+    "type": "keypress",
+    "key": "Key.enter",
+    "delay": 0.817781925201416
+  },
+  {
+    "type": "click",
+    "x": 145,
+    "y": 482,
+    "button": "Button.right",
+    "delay": 2.7174439430236816,
+    "use_image_search": true,
+    "image_path": "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/supports.png",
+    "x_offset": 0,
+    "y_offset": 15,
+    "pre_click_condition": "None",
+    "pre_click_images": [""],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 193,
+    "y": 761,
+    "button": "Button.left",
+    "delay": 1.2919905185699463,
+    "use_image_search": true,
+    "image_path": "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/undisplay.png",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": [""],
+    "key": "",
+    "match_threshold": 0.8
+  }
+]
