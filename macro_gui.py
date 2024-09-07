@@ -163,37 +163,47 @@ class MacroApp:
         type_entry["values"] = ["click", "keypress"]
         type_entry.grid(row=0, column=1, padx=5, pady=5)
 
-        tk.Label(edit_window, text="X:").grid(row=1, column=0, padx=5, pady=5)
+        # 키 입력에 대한 필드 (keypress 타입인 경우만 활성화)
+        tk.Label(edit_window, text="Key:").grid(row=1, column=0, padx=5, pady=5)
+        key_entry = tk.Entry(edit_window)
+        key_entry.grid(row=1, column=1, padx=5, pady=5)
+        key_entry.insert(0, action.get("key", ""))
+        key_entry.config(
+            state=tk.NORMAL if action["type"] == "keypress" else tk.DISABLED
+        )
+
+        # 클릭 좌표와 가감 필드 추가
+        tk.Label(edit_window, text="X:").grid(row=2, column=0, padx=5, pady=5)
         x_entry = tk.Entry(edit_window)
-        x_entry.grid(row=1, column=1, padx=5, pady=5)
+        x_entry.grid(row=2, column=1, padx=5, pady=5)
         x_entry.insert(0, action.get("x", ""))
 
-        tk.Label(edit_window, text="Y:").grid(row=2, column=0, padx=5, pady=5)
+        tk.Label(edit_window, text="Y:").grid(row=3, column=0, padx=5, pady=5)
         y_entry = tk.Entry(edit_window)
-        y_entry.grid(row=2, column=1, padx=5, pady=5)
+        y_entry.grid(row=3, column=1, padx=5, pady=5)
         y_entry.insert(0, action.get("y", ""))
 
-        tk.Label(edit_window, text="Button:").grid(row=3, column=0, padx=5, pady=5)
-        button_entry = ttk.Combobox(edit_window)
-        button_entry["values"] = ["Button.left", "Button.right"]
-        button_entry.grid(row=3, column=1, padx=5, pady=5)
-        button_entry.set(action.get("button", "Button.left"))
+        # X, Y 가감 필드 추가
+        tk.Label(edit_window, text="X Offset:").grid(row=4, column=0, padx=5, pady=5)
+        x_offset_entry = tk.Entry(edit_window)
+        x_offset_entry.grid(row=4, column=1, padx=5, pady=5)
+        x_offset_entry.insert(0, "0")
 
-        tk.Label(edit_window, text="Delay:").grid(row=4, column=0, padx=5, pady=5)
-        delay_entry = tk.Entry(edit_window)
-        delay_entry.grid(row=4, column=1, padx=5, pady=5)
-        delay_entry.insert(0, str(action.get("delay", 0)))
+        tk.Label(edit_window, text="Y Offset:").grid(row=5, column=0, padx=5, pady=5)
+        y_offset_entry = tk.Entry(edit_window)
+        y_offset_entry.grid(row=5, column=1, padx=5, pady=5)
+        y_offset_entry.insert(0, "0")
 
         # 이미지 검색 체크박스 추가
         use_image_search = tk.BooleanVar(value=action.get("use_image_search", False))
         tk.Checkbutton(
             edit_window, text="Use Image Search", variable=use_image_search
-        ).grid(row=5, column=0, padx=5, pady=5, columnspan=2)
+        ).grid(row=6, column=0, padx=5, pady=5, columnspan=2)
 
         # 이미지 파일 선택 필드 추가
-        tk.Label(edit_window, text="Image Path:").grid(row=6, column=0, padx=5, pady=5)
+        tk.Label(edit_window, text="Image Path:").grid(row=7, column=0, padx=5, pady=5)
         image_path_entry = tk.Entry(edit_window, width=40)
-        image_path_entry.grid(row=6, column=1, padx=5, pady=5)
+        image_path_entry.grid(row=7, column=1, padx=5, pady=5)
         image_path_entry.insert(0, action.get("image_path", ""))
 
         def select_image_file():
@@ -207,11 +217,11 @@ class MacroApp:
         select_image_button = tk.Button(
             edit_window, text="Select Image", command=select_image_file
         )
-        select_image_button.grid(row=6, column=2, padx=5, pady=5)
+        select_image_button.grid(row=7, column=2, padx=5, pady=5)
 
         # Pre-click 조건 설정 필드 추가
         tk.Label(edit_window, text="Pre-click Condition:").grid(
-            row=7, column=0, padx=5, pady=5
+            row=8, column=0, padx=5, pady=5
         )
         pre_click_condition = tk.StringVar(
             value=action.get("pre_click_condition", "None")
@@ -225,14 +235,14 @@ class MacroApp:
             "이미지가 없으면 생략",
             "이미지 찾을때 까지 대기",
         ]
-        pre_click_condition_entry.grid(row=7, column=1, padx=5, pady=5)
+        pre_click_condition_entry.grid(row=8, column=1, padx=5, pady=5)
 
         # 이미지 입력 필드 추가
         tk.Label(edit_window, text="Pre-click Images:").grid(
-            row=8, column=0, padx=5, pady=5
+            row=9, column=0, padx=5, pady=5
         )
         pre_click_images_entry = tk.Entry(edit_window, width=40)
-        pre_click_images_entry.grid(row=8, column=1, padx=5, pady=5)
+        pre_click_images_entry.grid(row=9, column=1, padx=5, pady=5)
         pre_click_images_entry.insert(0, ",".join(action.get("pre_click_images", [])))
 
         def select_pre_click_images():
@@ -246,14 +256,26 @@ class MacroApp:
         select_pre_click_images_button = tk.Button(
             edit_window, text="Select Images", command=select_pre_click_images
         )
-        select_pre_click_images_button.grid(row=8, column=2, padx=5, pady=5)
+        select_pre_click_images_button.grid(row=9, column=2, padx=5, pady=5)
 
         def save_edits():
             action["type"] = action_type.get()
-            action["x"] = int(x_entry.get()) if x_entry.get().isdigit() else 0
-            action["y"] = int(y_entry.get()) if y_entry.get().isdigit() else 0
-            action["button"] = button_entry.get()
-            action["delay"] = float(delay_entry.get())
+            action["key"] = (
+                key_entry.get()
+                if action["type"] == "keypress"
+                else action.get("key", "")
+            )
+
+            # 빈 문자열인 경우 기본값 0을 사용하도록 수정
+            x_value = int(x_entry.get()) if x_entry.get() else 0
+            x_offset_value = int(x_offset_entry.get()) if x_offset_entry.get() else 0
+            y_value = int(y_entry.get()) if y_entry.get() else 0
+            y_offset_value = int(y_offset_entry.get()) if y_offset_entry.get() else 0
+
+            action["x"] = x_value + x_offset_value
+            action["y"] = y_value + y_offset_value
+            action["button"] = action.get("button", "Button.left")
+            action["delay"] = float(action.get("delay", 0))
             action["use_image_search"] = use_image_search.get()
             action["image_path"] = image_path_entry.get()
             action["pre_click_condition"] = pre_click_condition.get()
@@ -265,7 +287,7 @@ class MacroApp:
             edit_window.destroy()
 
         save_button = tk.Button(edit_window, text="Save", command=save_edits)
-        save_button.grid(row=9, column=0, columnspan=3, pady=10)
+        save_button.grid(row=10, column=0, columnspan=3, pady=10)
 
     def delete_action(self):
         selected_index = self.action_listbox.curselection()
