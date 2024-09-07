@@ -1,5 +1,3 @@
-# macro_core.py
-
 import json
 import time
 import pyautogui
@@ -50,9 +48,18 @@ class AutomationMacro:
         for action in self.actions:
             time.sleep(action["delay"])  # Wait for the recorded delay time
             if action["type"] == "click":
-                # Re-execute mouse clicks
-                x, y, button = action["x"], action["y"], action["button"]
-                self.simulate_click(x, y, button)
+                if action.get("use_image_search") and action.get("image_path"):
+                    # 이미지 검색을 사용해 클릭 위치 탐색
+                    location = pyautogui.locateOnScreen(action["image_path"])
+                    if location:
+                        x, y = pyautogui.center(location)
+                        self.simulate_click(x, y, action["button"])
+                    else:
+                        print(f"Image not found on screen: {action['image_path']}")
+                else:
+                    # 기존 클릭 실행
+                    x, y, button = action["x"], action["y"], action["button"]
+                    self.simulate_click(x, y, button)
             elif action["type"] == "keypress":
                 # Re-execute key presses
                 key = action["key"]
@@ -78,6 +85,8 @@ class AutomationMacro:
                         "y": y,
                         "button": str(button),
                         "delay": delay,
+                        "use_image_search": False,  # 기본값으로 이미지 검색 비활성화
+                        "image_path": "",  # 기본 이미지 경로 설정
                     }
                 )
                 # UI에 바로 반영

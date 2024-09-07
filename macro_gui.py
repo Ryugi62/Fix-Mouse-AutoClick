@@ -1,5 +1,3 @@
-# macro_gui.py
-
 import tkinter as tk
 from tkinter import messagebox, filedialog, simpledialog, ttk
 from macro_core import AutomationMacro
@@ -155,6 +153,31 @@ class MacroApp:
         delay_entry.grid(row=4, column=1, padx=5, pady=5)
         delay_entry.insert(0, str(action.get("delay", 0)))
 
+        # 이미지 검색 체크박스 추가
+        use_image_search = tk.BooleanVar(value=action.get("use_image_search", False))
+        tk.Checkbutton(
+            edit_window, text="Use Image Search", variable=use_image_search
+        ).grid(row=5, column=0, padx=5, pady=5, columnspan=2)
+
+        # 이미지 파일 선택 필드 추가
+        tk.Label(edit_window, text="Image Path:").grid(row=6, column=0, padx=5, pady=5)
+        image_path_entry = tk.Entry(edit_window, width=40)
+        image_path_entry.grid(row=6, column=1, padx=5, pady=5)
+        image_path_entry.insert(0, action.get("image_path", ""))
+
+        def select_image_file():
+            file_path = filedialog.askopenfilename(
+                title="Select Image File",
+                filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")],
+            )
+            image_path_entry.delete(0, tk.END)
+            image_path_entry.insert(0, file_path)
+
+        select_image_button = tk.Button(
+            edit_window, text="Select Image", command=select_image_file
+        )
+        select_image_button.grid(row=6, column=2, padx=5, pady=5)
+
         def save_edits():
             # 각 필드의 값을 가져와 수정된 액션으로 업데이트
             action["type"] = action_type.get()
@@ -162,6 +185,8 @@ class MacroApp:
             action["y"] = int(y_entry.get()) if y_entry.get().isdigit() else 0
             action["button"] = button_entry.get()
             action["delay"] = float(delay_entry.get())
+            action["use_image_search"] = use_image_search.get()
+            action["image_path"] = image_path_entry.get()
 
             self.actions[index] = action
             self.action_listbox.delete(index)
@@ -169,7 +194,7 @@ class MacroApp:
             edit_window.destroy()
 
         save_button = tk.Button(edit_window, text="Save", command=save_edits)
-        save_button.grid(row=5, column=0, columnspan=2, pady=10)
+        save_button.grid(row=7, column=0, columnspan=3, pady=10)
 
     def delete_action(self):
         selected_index = self.action_listbox.curselection()
