@@ -83,8 +83,8 @@
     },
     {
         "type": "click",
-        "x": 215,
-        "y": 463,
+        "x": 210,
+        "y": 457,
         "button": "Button.left",
         "delay": 2.720306396484375,
         "use_image_search": false,
@@ -92,7 +92,11 @@
         "x_offset": 0,
         "y_offset": 0,
         "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_images": [
+            ""
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -130,8 +134,12 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/values.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -143,8 +151,12 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/animate.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -156,8 +168,12 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/mirrored.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -169,8 +185,12 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/undeformed.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -182,8 +202,12 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc5c6\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/legend.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -195,8 +219,12 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/deform.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -208,8 +236,12 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/yield_point.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     },
     {
         "type": "click",
@@ -234,17 +266,11 @@
         "image_path": "",
         "x_offset": 0,
         "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
-    },
-    {
-        "type": "keypress",
-        "key": "Key.alt_l",
-        "delay": 1.2856390476226807
-    },
-    {
-        "type": "keypress",
-        "key": "Key.tab",
-        "delay": 0.05014657974243164
+        "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/close.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
     }
 ]

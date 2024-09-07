@@ -1,0 +1,239 @@
+[
+    {
+        "type": "click",
+        "x": 345,
+        "y": 228,
+        "button": "Button.right",
+        "delay": 1.3494846820831299,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 432,
+        "y": 263,
+        "button": "Button.left",
+        "delay": 0.8175411224365234,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 684,
+        "y": 285,
+        "button": "Button.left",
+        "delay": 0.8841397762298584,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 107,
+        "y": 299,
+        "button": "Button.left",
+        "delay": 1.6850652694702148,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "keypress",
+        "key": "Key.home",
+        "delay": 1.1511189937591553
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_down",
+        "delay": 0.9977571964263916
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_down",
+        "delay": 0.23685908317565918
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_down",
+        "delay": 0.28372693061828613
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_down",
+        "delay": 0.6838035583496094
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_up",
+        "delay": 0.4837477207183838
+    },
+    {
+        "type": "keypress",
+        "key": "Key.down",
+        "delay": 0.5172953605651855
+    },
+    {
+        "type": "keypress",
+        "key": "Key.enter",
+        "delay": 0.3837113380432129
+    },
+    {
+        "type": "click",
+        "x": 58,
+        "y": 528,
+        "button": "Button.left",
+        "delay": 1.9355814456939697,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 58,
+        "y": 619,
+        "button": "Button.left",
+        "delay": 1.9849746227264404,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/values.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 56,
+        "y": 637,
+        "button": "Button.left",
+        "delay": 0.7663800716400146,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/animate.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 55,
+        "y": 659,
+        "button": "Button.left",
+        "delay": 0.6348865032196045,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/mirrored.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 154,
+        "y": 640,
+        "button": "Button.left",
+        "delay": 0.7343459129333496,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/undeformed.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 156,
+        "y": 616,
+        "button": "Button.left",
+        "delay": 0.6337649822235107,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc5c6\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/legend.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 156,
+        "y": 595,
+        "button": "Button.left",
+        "delay": 0.7174286842346191,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/deform.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 152,
+        "y": 780,
+        "button": "Button.left",
+        "delay": 0.8496255874633789,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 213,
+        "y": 779,
+        "button": "Button.left",
+        "delay": 5.273104190826416,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/close.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    }
+]

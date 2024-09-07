@@ -1,115 +1,107 @@
 [
     {
         "type": "click",
-        "x": 138,
-        "y": 566,
+        "x": 78,
+        "y": 559,
         "button": "Button.left",
-        "delay": 1.545173168182373,
+        "delay": 1.153186559677124,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 137,
-        "y": 591,
+        "x": 81,
+        "y": 582,
         "button": "Button.left",
-        "delay": 0.7704296112060547,
+        "delay": 0.6604773998260498,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 442,
-        "y": 44,
+        "x": 464,
+        "y": 52,
         "button": "Button.left",
-        "delay": 1.0827140808105469,
+        "delay": 1.7747609615325928,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 522,
-        "y": 123,
+        "x": 556,
+        "y": 131,
         "button": "Button.left",
-        "delay": 1.1314661502838135,
+        "delay": 1.6657941341400146,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 675,
-        "y": 511,
-        "button": "Button.left",
-        "delay": 3.050960063934326,
-        "use_image_search": false,
-        "image_path": "",
-        "pre_click_condition": "None",
-        "pre_click_images": []
-    },
-    {
-        "type": "click",
-        "x": 648,
-        "y": 538,
-        "button": "Button.left",
-        "delay": 1.2128410339355469,
-        "use_image_search": false,
-        "image_path": "",
-        "pre_click_condition": "None",
-        "pre_click_images": []
-    },
-    {
-        "type": "click",
-        "x": 653,
+        "x": 176,
         "y": 483,
         "button": "Button.left",
-        "delay": 1.6682677268981934,
+        "delay": 4.263726234436035,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "keypress",
-        "key": "'d'",
-        "delay": 2.1513688564300537
+        "key": "'1'",
+        "delay": 0.5663249492645264
     },
     {
         "type": "keypress",
         "key": "Key.enter",
-        "delay": 0.8701012134552002
+        "delay": 1.2901685237884521
     },
     {
         "type": "keypress",
         "key": "Key.enter",
-        "delay": 1.6879420280456543
+        "delay": 1.099698781967163
     },
     {
         "type": "click",
-        "x": 357,
-        "y": 48,
+        "x": 372,
+        "y": 52,
         "button": "Button.left",
-        "delay": 2.170876979827881,
+        "delay": 2.1756417751312256,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 378,
-        "y": 588,
+        "x": 314,
+        "y": 584,
         "button": "Button.left",
-        "delay": 1.3970212936401367,
+        "delay": 1.6163623332977295,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     }

@@ -1,12 +1,14 @@
 [
     {
         "type": "click",
-        "x": 619,
-        "y": 588,
+        "x": 566,
+        "y": 579,
         "button": "Button.left",
-        "delay": 2.7492728233337402,
+        "delay": 1.532956600189209,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     }

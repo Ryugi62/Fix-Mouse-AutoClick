@@ -1,48 +1,58 @@
 [
     {
         "type": "click",
-        "x": 809,
-        "y": 72,
+        "x": 756,
+        "y": 64,
         "button": "Button.left",
-        "delay": 3.5693166255950928,
+        "delay": 1.3192825317382812,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 654,
-        "y": 116,
+        "x": 585,
+        "y": 109,
         "button": "Button.left",
-        "delay": 1.1142547130584717,
+        "delay": 1.3952279090881348,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 678,
-        "y": 327,
+        "x": 605,
+        "y": 316,
         "button": "Button.left",
-        "delay": 2.0899813175201416,
+        "delay": 2.526577949523926,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 401,
-        "y": 570,
+        "x": 339,
+        "y": 561,
         "button": "Button.left",
-        "delay": 3.317080497741699,
+        "delay": 10.212584733963013,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
         "pre_click_images": [
             "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/open_table_button.png"
-        ]
+        ],
+        "key": "",
+        "match_threshold": 0.8
     }
 ]

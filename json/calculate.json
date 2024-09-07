@@ -1,59 +1,71 @@
 [
     {
         "type": "click",
-        "x": 818,
-        "y": 66,
+        "x": 766,
+        "y": 64,
         "button": "Button.left",
-        "delay": 0.9265532493591309,
+        "delay": 1.0359418392181396,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 1400,
-        "y": 134,
+        "x": 1347,
+        "y": 132,
         "button": "Button.left",
-        "delay": 0.8759543895721436,
+        "delay": 0.7268476486206055,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 117,
-        "y": 83,
+        "x": 57,
+        "y": 77,
         "button": "Button.left",
-        "delay": 2.014880418777466,
+        "delay": 1.8346667289733887,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 349,
-        "y": 398,
+        "x": 290,
+        "y": 391,
         "button": "Button.left",
-        "delay": 1.5928997993469238,
+        "delay": 1.5244085788726807,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "None",
         "pre_click_images": []
     },
     {
         "type": "click",
-        "x": 444,
-        "y": 399,
+        "x": 383,
+        "y": 394,
         "button": "Button.left",
-        "delay": 3.7645163536071777,
+        "delay": 1.101191520690918,
         "use_image_search": false,
         "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
         "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
         "pre_click_images": [
             "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/success.png"
-        ]
+        ],
+        "key": "",
+        "match_threshold": 0.8
     }
 ]
