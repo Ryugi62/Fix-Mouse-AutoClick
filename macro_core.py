@@ -1,3 +1,4 @@
+import os
 import json
 import time
 import cv2
@@ -210,6 +211,10 @@ class AutomationMacro:
 
         keyboard_controller = Controller()
         try:
+            # __file__/results/ 폴더가 있는지 확인
+            if not os.path.exists("results"):
+                os.makedirs("results")
+
             # 문자열이 'Key.'로 시작하면 평가하여 특수 키로 처리, 아니면 일반 문자열로 처리
             if "Key." in key:
                 key = eval(key)  # 'Key.enter'와 같은 특수 키 처리
@@ -220,9 +225,8 @@ class AutomationMacro:
                 key_str = key.strip("'")
 
                 # .jpg 로 끝나면 프로그램의 위치를 더해준다.
-                path = os.path.dirname(os.path.abspath(__file__))
-                if key_str.endswith(".jpg"):
-                    key_str = os.path.join(path, key_str)
+                path = os.path.dirname(os.path.abspath(__file__), "results")
+                key_str = os.path.join(path, key_str)
 
                 for char in key_str:
                     keyboard_controller.press(char)
