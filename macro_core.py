@@ -80,7 +80,9 @@ class AutomationMacro:
 
             # 이미지 검색 기능이 활성화된 경우
             if action.get("use_image_search") and action.get("image_path"):
-                location = self.find_image_on_screen(action["image_path"])
+                location = self.find_image_on_screen(
+                    action["image_path"].split("/")[-1]
+                )
                 if location is not None:
                     x, y = location  # 이미지의 중앙 좌표로 설정
                     # x_offset과 y_offset 값을 추가 또는 감소
@@ -117,7 +119,7 @@ class AutomationMacro:
                         return False
             elif condition == "이미지 찾을때 까지 대기":
                 start_time = time.time()
-                while time.time() - start_time < 300:  # 최대 5분 대기
+                while time.time() - start_time < 600:  # 최대 5분 대기
                     try:
                         found = all(
                             self.find_image_on_screen(image) is not None
@@ -140,6 +142,9 @@ class AutomationMacro:
             return False
 
     def find_image_on_screen(self, image_path):
+        path = os.path.dirname(os.path.abspath(__file__))
+        image_path = os.path.join(path, "images", image_path)
+
         try:
             # 화면의 스크린샷을 캡처하여 numpy 배열로 변환
             screen = pyautogui.screenshot()
@@ -230,16 +235,19 @@ class AutomationMacro:
             if not os.path.exists("results"):
                 os.makedirs("results")
 
-            # 문자열이 'Key.'로 시작하면 평가하여 특수 키로 처리, 아니면 일반 문자열로 처리
-            if "Key." in key:
+            # 'Ctrl + F2' 입력을 처리하기 위한 조건 추가
+            if key == "'<ctrl>+<f2>'":
+                keyboard_controller.press(Key.ctrl)  # Ctrl 키 누름
+                keyboard_controller.press(Key.f2)  # F2 키 누름
+                keyboard_controller.release(Key.f2)  # F2 키 뗌
+                keyboard_controller.release(Key.ctrl)  # Ctrl 키 뗌
+            elif "Key." in key:
                 key = eval(key)  # 'Key.enter'와 같은 특수 키 처리
                 keyboard_controller.press(key)
                 keyboard_controller.release(key)
             else:
-                # 문자열로 입력된 키를 각각 입력
                 key_str = key.strip("'")
 
-                # .jpg 로 끝나면 프로그램의 위치를 더해준다.
                 path = os.path.dirname(os.path.abspath(__file__))
                 key_str = os.path.join(path, "results", key_str)
 
