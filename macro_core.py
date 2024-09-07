@@ -211,7 +211,6 @@ class AutomationMacro:
 
         keyboard_controller = Controller()
         try:
-            # __file__/results/ 폴더가 있는지 확인
             if not os.path.exists("results"):
                 os.makedirs("results")
 
@@ -225,12 +224,15 @@ class AutomationMacro:
                 key_str = key.strip("'")
 
                 # .jpg 로 끝나면 프로그램의 위치를 더해준다.
-                path = os.path.dirname(os.path.abspath(__file__), "results")
-                key_str = os.path.join(path, key_str)
+                path = os.path.dirname(os.path.abspath(__file__))
+                key_str = os.path.join(path, "results", key_str)
+
+                print(f"Simulating key press: {key_str}")
 
                 for char in key_str:
                     keyboard_controller.press(char)
                     keyboard_controller.release(char)
+                    time.sleep(0.05)
 
         except Exception as e:
             print(f"Error simulating key press: {e}")
