@@ -1,0 +1,94 @@
+[
+  {
+    "type": "click",
+    "x": 42,
+    "y": 57,
+    "button": "Button.left",
+    "delay": 1.1137337684631348,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 86,
+    "y": 452,
+    "button": "Button.left",
+    "delay": 1.271477460861206,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 842,
+    "y": 737,
+    "button": "Button.left",
+    "delay": 1.9792091846466064,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8037488460540771
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.17268824577331543
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.15682625770568848
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.14188385009765625
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.172987699508667
+  },
+  {
+    "type": "keypress",
+    "key": "Key.enter",
+    "delay": 0.2992246150970459
+  },
+  {
+    "type": "click",
+    "x": 833,
+    "y": 714,
+    "button": "Button.left",
+    "delay": 1.5720806121826172,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "keypress",
+    "key": "'x_displacement.jpg'",
+    "delay": 0.11033821105957031
+  },
+  {
+    "type": "keypress",
+    "key": "Key.enter",
+    "delay": 0.8014371395111084
+  }
+]
