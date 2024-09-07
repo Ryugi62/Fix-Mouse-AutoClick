@@ -187,12 +187,12 @@ class MacroApp:
         tk.Label(edit_window, text="X Offset:").grid(row=4, column=0, padx=5, pady=5)
         x_offset_entry = tk.Entry(edit_window)
         x_offset_entry.grid(row=4, column=1, padx=5, pady=5)
-        x_offset_entry.insert(0, "0")
+        x_offset_entry.insert(0, str(action.get("x_offset", 0)))  # 기본값 0
 
         tk.Label(edit_window, text="Y Offset:").grid(row=5, column=0, padx=5, pady=5)
         y_offset_entry = tk.Entry(edit_window)
         y_offset_entry.grid(row=5, column=1, padx=5, pady=5)
-        y_offset_entry.insert(0, "0")
+        y_offset_entry.insert(0, str(action.get("y_offset", 0)))  # 기본값 0
 
         # 이미지 검색 체크박스 추가
         use_image_search = tk.BooleanVar(value=action.get("use_image_search", False))
@@ -219,9 +219,17 @@ class MacroApp:
         )
         select_image_button.grid(row=7, column=2, padx=5, pady=5)
 
+        # 이미지 비교 임계값 설정 필드 추가
+        tk.Label(edit_window, text="Match Threshold (0.0 - 1.0):").grid(
+            row=8, column=0, padx=5, pady=5
+        )
+        threshold_entry = tk.Entry(edit_window)
+        threshold_entry.grid(row=8, column=1, padx=5, pady=5)
+        threshold_entry.insert(0, str(action.get("match_threshold", 0.8)))  # 기본값 0.8
+
         # Pre-click 조건 설정 필드 추가
         tk.Label(edit_window, text="Pre-click Condition:").grid(
-            row=8, column=0, padx=5, pady=5
+            row=9, column=0, padx=5, pady=5
         )
         pre_click_condition = tk.StringVar(
             value=action.get("pre_click_condition", "None")
@@ -235,14 +243,14 @@ class MacroApp:
             "이미지가 없으면 생략",
             "이미지 찾을때 까지 대기",
         ]
-        pre_click_condition_entry.grid(row=8, column=1, padx=5, pady=5)
+        pre_click_condition_entry.grid(row=9, column=1, padx=5, pady=5)
 
         # 이미지 입력 필드 추가
         tk.Label(edit_window, text="Pre-click Images:").grid(
-            row=9, column=0, padx=5, pady=5
+            row=10, column=0, padx=5, pady=5
         )
         pre_click_images_entry = tk.Entry(edit_window, width=40)
-        pre_click_images_entry.grid(row=9, column=1, padx=5, pady=5)
+        pre_click_images_entry.grid(row=10, column=1, padx=5, pady=5)
         pre_click_images_entry.insert(0, ",".join(action.get("pre_click_images", [])))
 
         def select_pre_click_images():
@@ -256,7 +264,7 @@ class MacroApp:
         select_pre_click_images_button = tk.Button(
             edit_window, text="Select Images", command=select_pre_click_images
         )
-        select_pre_click_images_button.grid(row=9, column=2, padx=5, pady=5)
+        select_pre_click_images_button.grid(row=10, column=2, padx=5, pady=5)
 
         def save_edits():
             action["type"] = action_type.get()
@@ -266,28 +274,50 @@ class MacroApp:
                 else action.get("key", "")
             )
 
-            # 빈 문자열인 경우 기본값 0을 사용하도록 수정
-            x_value = int(x_entry.get()) if x_entry.get() else 0
-            x_offset_value = int(x_offset_entry.get()) if x_offset_entry.get() else 0
-            y_value = int(y_entry.get()) if y_entry.get() else 0
-            y_offset_value = int(y_offset_entry.get()) if y_offset_entry.get() else 0
+            # 좌표와 오프셋 값 가져오기
+            action["x"] = int(x_entry.get()) if x_entry.get() else 0
+            action["x_offset"] = (
+                int(x_offset_entry.get()) if x_offset_entry.get() else 0
+            )
+            action["y"] = int(y_entry.get()) if y_entry.get() else 0
+            action["y_offset"] = (
+                int(y_offset_entry.get()) if y_offset_entry.get() else 0
+            )
 
-            action["x"] = x_value + x_offset_value
-            action["y"] = y_value + y_offset_value
+            # 최종 좌표 계산
+            action["x"] += action["x_offset"]
+            action["y"] += action["y_offset"]
+
             action["button"] = action.get("button", "Button.left")
             action["delay"] = float(action.get("delay", 0))
             action["use_image_search"] = use_image_search.get()
             action["image_path"] = image_path_entry.get()
+
+            # 임계값 저장
+            try:
+                threshold_value = float(threshold_entry.get())
+                if 0.0 <= threshold_value <= 1.0:
+                    action["match_threshold"] = threshold_value
+                else:
+                    messagebox.showerror(
+                        "Error", "Threshold must be between 0.0 and 1.0"
+                    )
+                    return
+            except ValueError:
+                messagebox.showerror("Error", "Invalid threshold value")
+                return
+
             action["pre_click_condition"] = pre_click_condition.get()
             action["pre_click_images"] = pre_click_images_entry.get().split(",")
 
+            # 수정된 액션 리스트에 업데이트
             self.actions[index] = action
             self.action_listbox.delete(index)
             self.action_listbox.insert(index, str(action))
             edit_window.destroy()
 
         save_button = tk.Button(edit_window, text="Save", command=save_edits)
-        save_button.grid(row=10, column=0, columnspan=3, pady=10)
+        save_button.grid(row=11, column=0, columnspan=3, pady=10)  # Save 버튼 위치 수정
 
     def delete_action(self):
         selected_index = self.action_listbox.curselection()

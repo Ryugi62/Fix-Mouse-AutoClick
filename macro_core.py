@@ -59,16 +59,22 @@ class AutomationMacro:
 
     def execute_click_action(self, action):
         try:
+            x, y = action["x"], action["y"]
+
+            # 이미지 검색 기능이 활성화된 경우
             if action.get("use_image_search") and action.get("image_path"):
                 location = self.find_image_on_screen(action["image_path"])
                 if location is not None:
-                    x, y = location
-                    self.simulate_click(x, y, action["button"])
+                    x, y = location  # 이미지의 중앙 좌표로 설정
+                    # x_offset과 y_offset 값을 추가 또는 감소
+                    x += action.get("x_offset", 0)
+                    y += action.get("y_offset", 0)
                 else:
                     print(f"Image not found on screen: {action['image_path']}")
-            else:
-                x, y, button = action["x"], action["y"], action["button"]
-                self.simulate_click(x, y, button)
+                    return
+
+            # 최종 클릭 실행
+            self.simulate_click(x, y, action["button"])
         except Exception as e:
             print(f"Error executing click action: {e}")
             raise
@@ -165,6 +171,8 @@ class AutomationMacro:
                         "delay": delay,
                         "use_image_search": False,
                         "image_path": "",
+                        "x_offset": 0,
+                        "y_offset": 0,
                         "pre_click_condition": "None",
                         "pre_click_images": [],
                     }
