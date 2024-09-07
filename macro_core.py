@@ -140,7 +140,7 @@ class AutomationMacro:
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
 
             # 매칭 결과가 일정 임계값 이상일 때 위치 반환
-            threshold = 0.95
+            threshold = 0.8
             if max_val >= threshold:
                 target_height, target_width = target_image.shape
                 center_x = max_loc[0] + target_width // 2
@@ -210,9 +210,18 @@ class AutomationMacro:
 
         keyboard_controller = Controller()
         try:
-            key = eval(key) if "Key." in key else key.replace("'", "")
-            keyboard_controller.press(key)
-            keyboard_controller.release(key)
+            # 문자열이 'Key.'로 시작하면 평가하여 특수 키로 처리, 아니면 일반 문자열로 처리
+            if "Key." in key:
+                key = eval(key)  # 'Key.enter'와 같은 특수 키 처리
+                keyboard_controller.press(key)
+                keyboard_controller.release(key)
+            else:
+                # 문자열로 입력된 키를 각각 입력
+                key_str = key.strip("'")
+                for char in key_str:
+                    keyboard_controller.press(char)
+                    keyboard_controller.release(char)
+
         except Exception as e:
             print(f"Error simulating key press: {e}")
 
