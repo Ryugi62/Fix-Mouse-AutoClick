@@ -1,0 +1,13 @@
+[
+    {
+        "type": "click",
+        "x": 626,
+        "y": 590,
+        "button": "Button.left",
+        "delay": 1.5876097679138184,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    }
+]

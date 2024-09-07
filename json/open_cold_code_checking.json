@@ -1,0 +1,48 @@
+[
+    {
+        "type": "click",
+        "x": 809,
+        "y": 72,
+        "button": "Button.left",
+        "delay": 3.5693166255950928,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 654,
+        "y": 116,
+        "button": "Button.left",
+        "delay": 1.1142547130584717,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 678,
+        "y": 327,
+        "button": "Button.left",
+        "delay": 2.0899813175201416,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 401,
+        "y": 570,
+        "button": "Button.left",
+        "delay": 3.317080497741699,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/open_table_button.png"
+        ]
+    }
+]

@@ -1,0 +1,59 @@
+[
+    {
+        "type": "click",
+        "x": 818,
+        "y": 66,
+        "button": "Button.left",
+        "delay": 0.9265532493591309,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 1400,
+        "y": 134,
+        "button": "Button.left",
+        "delay": 0.8759543895721436,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 117,
+        "y": 83,
+        "button": "Button.left",
+        "delay": 2.014880418777466,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 349,
+        "y": 398,
+        "button": "Button.left",
+        "delay": 1.5928997993469238,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 444,
+        "y": 399,
+        "button": "Button.left",
+        "delay": 3.7645163536071777,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/success.png"
+        ]
+    }
+]
