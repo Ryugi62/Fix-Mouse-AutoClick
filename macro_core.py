@@ -44,11 +44,12 @@ class AutomationMacro:
     def load_actions(self, file_path):
         with open(file_path, "r") as file:
             self.actions = json.load(file)
+            self.file_path = file_path
 
     def play_recording(self):
         try:
             # 만약 파일 이름에 "copy_*" 가 포함되어 있다면, 클립보드를 비운 후 모든 action이 끝나면 클립보드에 저장된 내용을 __file__, results 폴더에 저장한다.
-            if "copy_" in file_path:
+            if "copy_" in self.file_path:
                 pyperclip.copy("")
 
             for action in self.actions:
@@ -61,9 +62,12 @@ class AutomationMacro:
                     self.simulate_keypress(action["key"])
 
             # 모든 action이 끝나면 클립보드에 저장된 내용을 __file__, results 폴더에 저장한다.
-            if "copy_" in file_path:
+            if "copy_" in self.file_path:
                 path = os.path.dirname(os.path.abspath(__file__))
-                with open(os.path.join(path, "results", file_path), "w") as f:
+                file_name = self.file_path.split("\\")[-1].replace(".json", ".txt")
+                with open(
+                    os.path.join(path, "results", file_name), "w", encoding="utf-8"
+                ) as f:
                     f.write(pyperclip.paste())
 
         except Exception as e:
@@ -153,7 +157,7 @@ class AutomationMacro:
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
 
             # 매칭 결과가 일정 임계값 이상일 때 위치 반환
-            threshold = 0.8
+            threshold = 0.94
             if max_val >= threshold:
                 target_height, target_width = target_image.shape
                 center_x = max_loc[0] + target_width // 2
