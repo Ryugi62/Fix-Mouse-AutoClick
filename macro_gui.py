@@ -1,3 +1,5 @@
+# macro_gui.py
+
 import tkinter as tk
 from tkinter import messagebox, filedialog, simpledialog, ttk
 from macro_core import AutomationMacro

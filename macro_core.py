@@ -1,4 +1,5 @@
 # macro_core.py
+
 import json
 import time
 import pyautogui
