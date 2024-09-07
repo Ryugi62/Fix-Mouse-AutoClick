@@ -140,7 +140,7 @@ class AutomationMacro:
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
 
             # 매칭 결과가 일정 임계값 이상일 때 위치 반환
-            threshold = 0.8
+            threshold = 0.95
             if max_val >= threshold:
                 target_height, target_width = target_image.shape
                 center_x = max_loc[0] + target_width // 2
