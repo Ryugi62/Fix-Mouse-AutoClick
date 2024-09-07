@@ -7,9 +7,8 @@ class MacroApp:
     def __init__(self, root):
         self.root = root
         self.macro = AutomationMacro(self)
-        self.actions = []  # 클릭된 액션을 저장하는 리스트
+        self.actions = []
 
-        # Tkinter GUI setup
         self.root.title("Automation Macro")
 
         # 버튼 설정
@@ -39,6 +38,14 @@ class MacroApp:
         )
         self.load_button.pack(pady=10)
 
+        self.save_button = tk.Button(
+            self.root,
+            text="Save Recording",
+            command=self.save_recording,
+            state=tk.DISABLED,
+        )
+        self.save_button.pack(pady=10)
+
         # 클릭 로그 리스트박스
         self.action_listbox = tk.Listbox(self.root, selectmode=tk.SINGLE)
         self.action_listbox.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
@@ -57,9 +64,17 @@ class MacroApp:
         )
         self.delete_button.pack(side=tk.LEFT, padx=5, pady=5)
 
-        self.root.protocol("WM_DELETE_WINDOW", self.on_close)
+        self.up_button = tk.Button(
+            self.root, text="Move Up", command=self.move_up, state=tk.DISABLED
+        )
+        self.up_button.pack(side=tk.LEFT, padx=5, pady=5)
 
-        # 리스트박스 클릭 시 이벤트
+        self.down_button = tk.Button(
+            self.root, text="Move Down", command=self.move_down, state=tk.DISABLED
+        )
+        self.down_button.pack(side=tk.LEFT, padx=5, pady=5)
+
+        self.root.protocol("WM_DELETE_WINDOW", self.on_close)
         self.action_listbox.bind("<<ListboxSelect>>", self.on_action_select)
 
     def start_recording(self):
@@ -73,8 +88,8 @@ class MacroApp:
         self.record_button.config(state=tk.NORMAL)
         self.stop_button.config(state=tk.DISABLED)
         self.play_button.config(state=tk.NORMAL)
+        self.save_button.config(state=tk.NORMAL)
 
-        # 녹화된 액션 저장 및 리스트박스 업데이트
         self.macro.save_actions()
         self.load_actions()
         messagebox.showinfo("Recording", "Recording saved to recorded_actions.json")
@@ -89,6 +104,7 @@ class MacroApp:
                 self.load_actions()
                 messagebox.showinfo("Load Recording", "Recording loaded successfully.")
                 self.play_button.config(state=tk.NORMAL)
+                self.save_button.config(state=tk.NORMAL)
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to load file: {e}")
 
@@ -98,21 +114,36 @@ class MacroApp:
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred during playback: {e}")
 
+    def save_recording(self):
+        file_path = filedialog.asksaveasfilename(
+            title="Save Recorded File",
+            defaultextension=".json",
+            filetypes=[("JSON Files", "*.json")],
+        )
+        if file_path:
+            try:
+                self.macro.save_actions(file_path)
+                messagebox.showinfo("Save Recording", "Recording saved successfully.")
+            except Exception as e:
+                messagebox.showerror("Error", f"Failed to save file: {e}")
+
     def load_actions(self):
-        # 녹화된 액션을 리스트박스에 로드
-        self.actions = self.macro.get_actions()  # 매크로에서 액션 가져오기
-        self.action_listbox.delete(0, tk.END)  # 기존 항목 제거
+        self.actions = self.macro.get_actions()
+        self.action_listbox.delete(0, tk.END)
         for action in self.actions:
             self.action_listbox.insert(tk.END, str(action))
 
     def on_action_select(self, event):
-        # 리스트박스 항목이 선택되었을 때 버튼 활성화
         if self.action_listbox.curselection():
             self.edit_button.config(state=tk.NORMAL)
             self.delete_button.config(state=tk.NORMAL)
+            self.up_button.config(state=tk.NORMAL)
+            self.down_button.config(state=tk.NORMAL)
         else:
             self.edit_button.config(state=tk.DISABLED)
             self.delete_button.config(state=tk.DISABLED)
+            self.up_button.config(state=tk.DISABLED)
+            self.down_button.config(state=tk.DISABLED)
 
     def edit_action(self):
         selected_index = self.action_listbox.curselection()
@@ -218,7 +249,6 @@ class MacroApp:
         select_pre_click_images_button.grid(row=8, column=2, padx=5, pady=5)
 
         def save_edits():
-            # 각 필드의 값을 가져와 수정된 액션으로 업데이트
             action["type"] = action_type.get()
             action["x"] = int(x_entry.get()) if x_entry.get().isdigit() else 0
             action["y"] = int(y_entry.get()) if y_entry.get().isdigit() else 0
@@ -244,6 +274,30 @@ class MacroApp:
         index = selected_index[0]
         del self.actions[index]
         self.action_listbox.delete(index)
+
+    def move_up(self):
+        selected_index = self.action_listbox.curselection()
+        if not selected_index or selected_index[0] == 0:
+            return
+        index = selected_index[0]
+        self.actions[index], self.actions[index - 1] = (
+            self.actions[index - 1],
+            self.actions[index],
+        )
+        self.load_actions()
+        self.action_listbox.select_set(index - 1)
+
+    def move_down(self):
+        selected_index = self.action_listbox.curselection()
+        if not selected_index or selected_index[0] == len(self.actions) - 1:
+            return
+        index = selected_index[0]
+        self.actions[index], self.actions[index + 1] = (
+            self.actions[index + 1],
+            self.actions[index],
+        )
+        self.load_actions()
+        self.action_listbox.select_set(index + 1)
 
     def on_close(self):
         self.macro.stop_recording()
