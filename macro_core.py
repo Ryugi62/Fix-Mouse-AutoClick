@@ -142,8 +142,12 @@ class AutomationMacro:
             return False
 
     def find_image_on_screen(self, image_path):
+        # 파일 이름만 추출
+        image_name = os.path.basename(image_path)
+
+        # images 폴더의 절대 경로
         path = os.path.dirname(os.path.abspath(__file__))
-        image_path = os.path.join(path, "images", image_path)
+        full_image_path = os.path.join(path, "images", image_name)
 
         try:
             # 화면의 스크린샷을 캡처하여 numpy 배열로 변환
@@ -152,9 +156,9 @@ class AutomationMacro:
             screen_gray = cv2.cvtColor(screen_np, cv2.COLOR_BGR2GRAY)
 
             # 대상 이미지를 읽어서 회색조로 변환
-            target_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+            target_image = cv2.imread(full_image_path, cv2.IMREAD_GRAYSCALE)
             if target_image is None:
-                print(f"Failed to load image: {image_path}")
+                print(f"Failed to load image: {full_image_path}")
                 return None
 
             # 이미지 매칭을 통해 위치를 찾음
