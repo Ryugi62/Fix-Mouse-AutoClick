@@ -25,6 +25,40 @@ import pyautogui
 import midas_file_creator
 
 
+# Updated function to extract detailed address information from the path
+def extract_information_from_path(path):
+    # Improved patterns for extracting the desired information
+    address_pattern = (
+        # "경북 구미시 도개면 도개리"
+        r"[가-힣]+[도|시|군|구]\s[가-힣\s]+[구|시|군|면|동|리]+"
+    )
+    solar_name_pattern = r"[가-힣\s]+ 태양광발전소"
+    detailed_address_pattern = (
+        r"[가-힣]+[도|시|군|구]\s[가-힣\s]+[구|시|군|면|동|리]+\s\d+(-\d+)?번?길?\s?\d*"
+    )
+    solar_location_pattern = r"\((슬래브위|토지위)\)"
+
+    # Extract using regex patterns
+    address = re.search(address_pattern, path)
+    solar_name = re.search(solar_name_pattern, path)
+    detailed_address = re.search(detailed_address_pattern, path)
+    solar_location = re.search(solar_location_pattern, path)
+
+    # Replace "슬래브위" with "건물위"
+    location = solar_location.group(1) if solar_location else None
+    if location == "슬래브위":
+        location = "건물위"
+
+    # Format extracted information into a dictionary
+    extracted_info = {
+        "{{주소}}": address.group() if address else None,
+        "{{태양광명칭}}": solar_name.group() if solar_name else None,
+        "{{주소상세}}": detailed_address.group() if detailed_address else None,
+        "{{태양광위치}}": location,
+    }
+    return extracted_info
+
+
 class OrderDialog(QDialog):
     def __init__(self, checked_items, parent=None):
         super().__init__(parent)
@@ -243,7 +277,7 @@ class UltraModernMidasLinker(QMainWindow):
             QComboBox QAbstractItemView::item:selected {
                 background-color: #1d72b8;
                 color: #ffffff;
-            }s
+            }
         """
 
     def browse_file_with_extension(self, entry, extensions):
@@ -251,43 +285,6 @@ class UltraModernMidasLinker(QMainWindow):
         filename, _ = QFileDialog.getOpenFileName(self, "파일 선택", "", file_filter)
         if filename:
             entry.setText(filename)
-
-    # 태양광 명칭 추출 및 QComboBox 생성 함수
-    def extract_solar_name(self, path):
-        pattern = r"(\S+?)(\d+)(?:~(\d+))?호\s*태양광발전소"
-        match = re.search(pattern, path)
-
-        if match:
-            base_name = match.group(1)  # "도성기"
-            start_num = int(match.group(2))  # "1"
-            end_num = match.group(3)  # "5" or None
-
-            if end_num:
-                end_num = int(end_num)
-                solar_names = [
-                    f"{base_name}{i}호 태양광발전소"
-                    for i in range(start_num, end_num + 1)
-                ]
-                # QComboBox 생성
-                combo_box = QComboBox()
-                combo_box.addItems(solar_names)
-                return combo_box
-            else:
-                # 범위가 없으면 단일 명칭 반환
-                combo_box = QComboBox()
-                combo_box.addItem(f"{base_name}{start_num}호 태양광발전소")
-                return combo_box
-        else:
-            return QComboBox()
-
-    def extract_solar_location(self, path):
-        # 정규 표현식으로 괄호 안의 내용 추출
-        pattern = r"태양광발전소\((.*?)\)"
-        match = re.search(pattern, path)
-        if match:
-            return match.group(1)
-        else:
-            return "위치를 추출할 수 없습니다."
 
     def create_left_panel(self):
         left_panel = QFrame()
@@ -414,41 +411,25 @@ class UltraModernMidasLinker(QMainWindow):
         if filename:
             entry.setText(filename)
 
-    def extract_address_from_path(self, path):
-        # 정규 표현식을 사용하여 시/도부터 번지 정보를 포함한 주소를 추출
-        pattern = r"(경북|경기|서울|부산|대구|광주|대전|울산|세종|인천|강원|충북|충남|전북|전남|경남|제주)\s[^\d]*(\d+[\-\d]*(?:, \d+[\-\d]*)*)"
-        match = re.search(pattern, path)
-
-        if match:
-            # 주소의 기본 부분과 번지 정보 추출
-            base_address = match.group(0)  # "경북 예천군 용궁면 덕계리"
-            detailed_address = match.group(2)  # "380-1, 381"
-
-            # 번지 정보를 개별 항목으로 나누기
-            address_parts = [
-                f"{base_address.split(' ')[0]} {base_address.split(' ')[1]} {base_address.split(' ')[2]} {base_address.split(' ')[3]} {num.strip()}"
-                for num in detailed_address.split(",")
-            ]
-            return base_address, address_parts
-        else:
-            return "주소를 찾을 수 없습니다.", []
-
     def update_information(self):
         self.error = None
         solar_path = self.file_entries["태양광"].text()
         if solar_path and os.path.isfile(solar_path):
-            extracted_address, detailed_addresses = self.extract_address_from_path(
-                solar_path
-            )
-            # 수정: 튜플에서 주소만 추출하여 설정
-            self.address_entry.setText(extracted_address)
+            # Extract information using the new function
+            extracted_info = extract_information_from_path(solar_path)
 
-            # 상세 주소 콤보 박스 설정
+            # Update the address entry
+            self.address_entry.setText(
+                extracted_info.get("{{주소}}", "주소를 찾을 수 없습니다.")
+            )
+
+            # Update the detailed address combo box
             self.detailed_address_combo.clear()
             self.detailed_address_combo.setEditable(True)
-            if detailed_addresses:
-                self.detailed_address_combo.addItems(detailed_addresses)
-                self.detailed_address_combo.setCurrentText(detailed_addresses[0])
+            detailed_address = extracted_info.get("{{주소상세}}", None)
+            if detailed_address:
+                self.detailed_address_combo.addItem(detailed_address)
+                self.detailed_address_combo.setCurrentText(detailed_address)
             else:
                 self.error = True
                 self.detailed_address_combo.addItem("상세 주소를 입력하세요")
@@ -456,15 +437,13 @@ class UltraModernMidasLinker(QMainWindow):
             self.detailed_address_combo.setEnabled(True)
             self.detailed_address_combo.setStyleSheet("color: #323232;")
 
-            # 태양광 명칭 콤보 박스 설정
-            combo_box = self.extract_solar_name(solar_path)
+            # Update the solar name combo box
+            solar_name = extracted_info.get("{{태양광명칭}}", None)
             self.solar_name_combo.clear()
             self.solar_name_combo.setEditable(True)
-            if combo_box.count() > 0:
-                self.solar_name_combo.addItems(
-                    [combo_box.itemText(i) for i in range(combo_box.count())]
-                )
-                self.solar_name_combo.setCurrentText(combo_box.itemText(0))
+            if solar_name:
+                self.solar_name_combo.addItem(solar_name)
+                self.solar_name_combo.setCurrentText(solar_name)
             else:
                 self.error = True
                 self.solar_name_combo.addItem("태양광 명칭을 입력하세요")
@@ -472,8 +451,11 @@ class UltraModernMidasLinker(QMainWindow):
             self.solar_name_combo.setEnabled(True)
             self.solar_name_combo.setStyleSheet("color: #323232;")
 
-            solar_location_entry = self.extract_solar_location(solar_path)
-            self.solar_location_entry.setText(solar_location_entry)
+            # Update the solar location entry
+            solar_location = extracted_info.get(
+                "{{태양광위치}}", "위치를 추출할 수 없습니다."
+            )
+            self.solar_location_entry.setText(solar_location)
 
             if self.error:
                 pyautogui.alert("찾을 수 없는 값이 있습니다.")
@@ -491,7 +473,7 @@ class UltraModernMidasLinker(QMainWindow):
             return
 
         solar_path = self.file_entries["태양광"].text()
-        extracted_address, _ = self.extract_address_from_path(solar_path)  # 수정: 튜플을 올바르게 해석
+        extracted_address, _ = self.extract_address_from_path(solar_path)
         self.address_entry.setText(extracted_address)
 
         checked_items = [cb.text() for cb in self.checkboxes if cb.isChecked()]
@@ -519,7 +501,6 @@ class UltraModernMidasLinker(QMainWindow):
             else:
                 print(f"경고: '{item}'에 대한 작업 함수가 정의되지 않았습니다.")
 
-    # 더미 작업 함수들
     def task_solar_type_division(self):
         return "태양광 타입 분할 작업 완료"
 
