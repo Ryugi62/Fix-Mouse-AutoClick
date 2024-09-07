@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox, filedialog, simpledialog, ttk
+from tkinter import messagebox, filedialog, ttk
 from macro_core import AutomationMacro
 
 
@@ -178,6 +178,45 @@ class MacroApp:
         )
         select_image_button.grid(row=6, column=2, padx=5, pady=5)
 
+        # Pre-click 조건 설정 필드 추가
+        tk.Label(edit_window, text="Pre-click Condition:").grid(
+            row=7, column=0, padx=5, pady=5
+        )
+        pre_click_condition = tk.StringVar(
+            value=action.get("pre_click_condition", "None")
+        )
+        pre_click_condition_entry = ttk.Combobox(
+            edit_window, textvariable=pre_click_condition
+        )
+        pre_click_condition_entry["values"] = [
+            "None",
+            "이미지가 있으면 생략",
+            "이미지가 없으면 생략",
+            "이미지 찾을때 까지 대기",
+        ]
+        pre_click_condition_entry.grid(row=7, column=1, padx=5, pady=5)
+
+        # 이미지 입력 필드 추가
+        tk.Label(edit_window, text="Pre-click Images:").grid(
+            row=8, column=0, padx=5, pady=5
+        )
+        pre_click_images_entry = tk.Entry(edit_window, width=40)
+        pre_click_images_entry.grid(row=8, column=1, padx=5, pady=5)
+        pre_click_images_entry.insert(0, ",".join(action.get("pre_click_images", [])))
+
+        def select_pre_click_images():
+            files = filedialog.askopenfilenames(
+                title="Select Pre-click Images",
+                filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")],
+            )
+            pre_click_images_entry.delete(0, tk.END)
+            pre_click_images_entry.insert(0, ",".join(files))
+
+        select_pre_click_images_button = tk.Button(
+            edit_window, text="Select Images", command=select_pre_click_images
+        )
+        select_pre_click_images_button.grid(row=8, column=2, padx=5, pady=5)
+
         def save_edits():
             # 각 필드의 값을 가져와 수정된 액션으로 업데이트
             action["type"] = action_type.get()
@@ -187,6 +226,8 @@ class MacroApp:
             action["delay"] = float(delay_entry.get())
             action["use_image_search"] = use_image_search.get()
             action["image_path"] = image_path_entry.get()
+            action["pre_click_condition"] = pre_click_condition.get()
+            action["pre_click_images"] = pre_click_images_entry.get().split(",")
 
             self.actions[index] = action
             self.action_listbox.delete(index)
@@ -194,7 +235,7 @@ class MacroApp:
             edit_window.destroy()
 
         save_button = tk.Button(edit_window, text="Save", command=save_edits)
-        save_button.grid(row=7, column=0, columnspan=3, pady=10)
+        save_button.grid(row=9, column=0, columnspan=3, pady=10)
 
     def delete_action(self):
         selected_index = self.action_listbox.curselection()
