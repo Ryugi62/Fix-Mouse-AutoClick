@@ -1,0 +1,240 @@
+[
+  {
+    "type": "click",
+    "x": 620,
+    "y": 59,
+    "button": "Button.left",
+    "delay": 1.0804800987243652,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 656,
+    "y": 87,
+    "button": "Button.left",
+    "delay": 2.0555849075317383,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 669,
+    "y": 114,
+    "button": "Button.left",
+    "delay": 0.690582275390625,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 115,
+    "y": 299,
+    "button": "Button.left",
+    "delay": 1.5216798782348633,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "keypress",
+    "key": "Key.home",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "keypress",
+    "key": "Key.down",
+    "delay": 0.8634288311004639
+  },
+  {
+    "type": "click",
+    "x": 297,
+    "y": 324,
+    "button": "Button.left",
+    "delay": 0.628131628036499,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 62,
+    "y": 412,
+    "button": "Button.left",
+    "delay": 1.224102258682251,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 57,
+    "y": 480,
+    "button": "Button.left",
+    "delay": 1.3177580833435059,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+    "pre_click_images": [
+      "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/values.png"
+    ],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 55,
+    "y": 504,
+    "button": "Button.left",
+    "delay": 0.4553229808807373,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+    "pre_click_images": [
+      "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/animate.png"
+    ],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 158,
+    "y": 503,
+    "button": "Button.left",
+    "delay": 0.7213025093078613,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+    "pre_click_images": [
+      "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/legend.png"
+    ],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 158,
+    "y": 477,
+    "button": "Button.left",
+    "delay": 0.5178463459014893,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc5c6\uc73c\uba74 \uc0dd\ub7b5",
+    "pre_click_images": [
+      "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/legend.png"
+    ],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 160,
+    "y": 458,
+    "button": "Button.left",
+    "delay": 0.5178606510162354,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc5c6\uc73c\uba74 \uc0dd\ub7b5",
+    "pre_click_images": [
+      "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/contour.png"
+    ],
+    "key": "",
+    "match_threshold": 0.8
+  },
+  {
+    "type": "click",
+    "x": 150,
+    "y": 534,
+    "button": "Button.left",
+    "delay": 0.7459936141967773,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 217,
+    "y": 540,
+    "button": "Button.left",
+    "delay": 4.196082592010498,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
+    "pre_click_images": [
+      "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/close.png"
+    ],
+    "key": "",
+    "match_threshold": 0.8
+  }
+]

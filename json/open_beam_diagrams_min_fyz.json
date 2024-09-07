@@ -1,0 +1,259 @@
+[
+    {
+        "type": "click",
+        "x": 350,
+        "y": 230,
+        "button": "Button.right",
+        "delay": 1.2028241157531738,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 407,
+        "y": 289,
+        "button": "Button.left",
+        "delay": 2.587683916091919,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 666,
+        "y": 328,
+        "button": "Button.left",
+        "delay": 1.255707025527954,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 108,
+        "y": 301,
+        "button": "Button.left",
+        "delay": 1.669804334640503,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "keypress",
+        "key": "Key.home",
+        "delay": 0.8095862865447998
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_down",
+        "delay": 0.502173900604248
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_down",
+        "delay": 0.3138597011566162
+    },
+    {
+        "type": "keypress",
+        "key": "Key.page_down",
+        "delay": 0.32889819145202637
+    },
+    {
+        "type": "keypress",
+        "key": "Key.enter",
+        "delay": 0.2665119171142578
+    },
+    {
+        "type": "keypress",
+        "key": "Key.shift_r",
+        "delay": 0.023597240447998047
+    },
+    {
+        "type": "click",
+        "x": 188,
+        "y": 433,
+        "button": "Button.left",
+        "delay": 1.9066548347473145,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 151,
+        "y": 582,
+        "button": "Button.left",
+        "delay": 2.745229482650757,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 58,
+        "y": 658,
+        "button": "Button.left",
+        "delay": 1.1926305294036865,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/values.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 55,
+        "y": 677,
+        "button": "Button.left",
+        "delay": 0.7213706970214844,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/animate.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 57,
+        "y": 699,
+        "button": "Button.left",
+        "delay": 0.8004083633422852,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/mirrored.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 54,
+        "y": 734,
+        "button": "Button.left",
+        "delay": 0.7687079906463623,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/yield_point.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 157,
+        "y": 677,
+        "button": "Button.left",
+        "delay": 1.0821001529693604,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/undeformed.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 157,
+        "y": 657,
+        "button": "Button.left",
+        "delay": 0.6123847961425781,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc5c6\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/legend.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 156,
+        "y": 637,
+        "button": "Button.left",
+        "delay": 0.6271655559539795,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc788\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/deform.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    },
+    {
+        "type": "click",
+        "x": 148,
+        "y": 843,
+        "button": "Button.left",
+        "delay": 1.9769079685211182,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 215,
+        "y": 845,
+        "button": "Button.left",
+        "delay": 6.714994192123413,
+        "use_image_search": false,
+        "image_path": "",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0 \ucc3e\uc744\ub54c \uae4c\uc9c0 \ub300\uae30",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/close.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    }
+]
