@@ -6,7 +6,8 @@ from pynput import mouse, keyboard
 
 
 class AutomationMacro:
-    def __init__(self):
+    def __init__(self, app):
+        self.app = app  # MacroApp의 인스턴스를 저장하여 GUI 관련 정보를 사용
         self.actions = []  # Recorded actions
         self.is_recording = False
         self.mouse_listener = None
@@ -57,26 +58,50 @@ class AutomationMacro:
                 self.simulate_keypress(key)
 
     def on_click(self, x, y, button, pressed):
-        if self.is_recording and pressed:
-            # Calculate the time delay since the last action
-            current_time = time.time()
-            delay = current_time - self.last_action_time
-            self.last_action_time = current_time
+        try:
+            if self.is_recording and pressed:
+                # GUI 영역 클릭 시 기록 방지
+                if self.is_click_inside_gui(x, y):
+                    return
 
-            # Record mouse click with delay
-            self.actions.append(
-                {"type": "click", "x": x, "y": y, "button": str(button), "delay": delay}
-            )
+                # Calculate the time delay since the last action
+                current_time = time.time()
+                delay = current_time - self.last_action_time
+                self.last_action_time = current_time
+
+                # Record mouse click with delay
+                self.actions.append(
+                    {
+                        "type": "click",
+                        "x": x,
+                        "y": y,
+                        "button": str(button),
+                        "delay": delay,
+                    }
+                )
+                # UI에 바로 반영
+                self.app.load_actions()
+        except NotImplementedError:
+            # pynput에서 발생할 수 있는 예외 처리
+            print("An unsupported action was attempted.")
 
     def on_press(self, key):
-        if self.is_recording:
-            # Calculate the time delay since the last action
-            current_time = time.time()
-            delay = current_time - self.last_action_time
-            self.last_action_time = current_time
+        try:
+            if self.is_recording:
+                # Calculate the time delay since the last action
+                current_time = time.time()
+                delay = current_time - self.last_action_time
+                self.last_action_time = current_time
 
-            # Record key press with delay
-            self.actions.append({"type": "keypress", "key": str(key), "delay": delay})
+                # Record key press with delay
+                self.actions.append(
+                    {"type": "keypress", "key": str(key), "delay": delay}
+                )
+                # UI에 바로 반영
+                self.app.load_actions()
+        except NotImplementedError:
+            # pynput에서 발생할 수 있는 예외 처리
+            print("An unsupported action was attempted.")
 
     def simulate_click(self, x, y, button):
         # Use pyautogui to simulate a mouse click at (x, y) with a specific button
@@ -98,3 +123,16 @@ class AutomationMacro:
             keyboard_controller.release(key)
         except Exception as e:
             print(f"Error simulating key press: {e}")
+
+    def is_click_inside_gui(self, x, y):
+        # GUI의 영역을 얻어와 클릭 위치와 비교하여 GUI 클릭인지 판단
+        gui_x = self.app.root.winfo_rootx()
+        gui_y = self.app.root.winfo_rooty()
+        gui_width = self.app.root.winfo_width()
+        gui_height = self.app.root.winfo_height()
+
+        return gui_x <= x <= gui_x + gui_width and gui_y <= y <= gui_y + gui_height
+
+    def get_actions(self):
+        # 액션 리스트 반환 메서드 추가
+        return self.actions
