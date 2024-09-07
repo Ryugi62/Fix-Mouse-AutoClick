@@ -1,194 +1,74 @@
 [
-    {
-        "type": "click",
-        "x": 42,
-        "y": 45,
-        "button": "Button.left",
-        "delay": 1.6782102584838867,
-        "use_image_search": false,
-        "image_path": "",
-        "x_offset": 0,
-        "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
-    },
-    {
-        "type": "click",
-        "x": 84,
-        "y": 453,
-        "button": "Button.left",
-        "delay": 1.8515267372131348,
-        "use_image_search": false,
-        "image_path": "",
-        "x_offset": 0,
-        "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
-    },
-    {
-        "type": "click",
-        "x": 834,
-        "y": 730,
-        "button": "Button.left",
-        "delay": 3.536071538925171,
-        "use_image_search": false,
-        "image_path": "",
-        "x_offset": 0,
-        "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
-    },
-    {
-        "type": "keypress",
-        "key": "Key.end",
-        "delay": 1.57645583152771
-    },
-    {
-        "type": "keypress",
-        "key": "Key.enter",
-        "delay": 1.0240180492401123
-    },
-    {
-        "type": "click",
-        "x": 848,
-        "y": 711,
-        "button": "Button.left",
-        "delay": 2.2182650566101074,
-        "use_image_search": false,
-        "image_path": "",
-        "x_offset": 0,
-        "y_offset": 0,
-        "pre_click_condition": "None",
-        "pre_click_images": []
-    },
-    {
-        "type": "keypress",
-        "key": "'d'",
-        "delay": 5.306952476501465
-    },
-    {
-        "type": "keypress",
-        "key": "'i'",
-        "delay": 0.14145827293395996
-    },
-    {
-        "type": "keypress",
-        "key": "'s'",
-        "delay": 0.14174580574035645
-    },
-    {
-        "type": "keypress",
-        "key": "'p'",
-        "delay": 0.2834489345550537
-    },
-    {
-        "type": "keypress",
-        "key": "'l'",
-        "delay": 0.20403742790222168
-    },
-    {
-        "type": "keypress",
-        "key": "'a'",
-        "delay": 0.5902676582336426
-    },
-    {
-        "type": "keypress",
-        "key": "'c'",
-        "delay": 0.2594716548919678
-    },
-    {
-        "type": "keypress",
-        "key": "'e'",
-        "delay": 0.2208089828491211
-    },
-    {
-        "type": "keypress",
-        "key": "'m'",
-        "delay": 0.3617379665374756
-    },
-    {
-        "type": "keypress",
-        "key": "'e'",
-        "delay": 0.12577319145202637
-    },
-    {
-        "type": "keypress",
-        "key": "'n'",
-        "delay": 0.07886958122253418
-    },
-    {
-        "type": "keypress",
-        "key": "'t'",
-        "delay": 0.10999560356140137
-    },
-    {
-        "type": "keypress",
-        "key": "Key.shift_r",
-        "delay": 0.26786088943481445
-    },
-    {
-        "type": "keypress",
-        "key": "'_'",
-        "delay": 0.330341100692749
-    },
-    {
-        "type": "keypress",
-        "key": "'c'",
-        "delay": 0.7873539924621582
-    },
-    {
-        "type": "keypress",
-        "key": "'o'",
-        "delay": 0.1670074462890625
-    },
-    {
-        "type": "keypress",
-        "key": "'n'",
-        "delay": 0.7777073383331299
-    },
-    {
-        "type": "keypress",
-        "key": "'t'",
-        "delay": 0.7397544384002686
-    },
-    {
-        "type": "keypress",
-        "key": "'o'",
-        "delay": 0.1894855499267578
-    },
-    {
-        "type": "keypress",
-        "key": "'u'",
-        "delay": 0.09829449653625488
-    },
-    {
-        "type": "keypress",
-        "key": "'r'",
-        "delay": 0.20051813125610352
-    },
-    {
-        "type": "keypress",
-        "key": "'.'",
-        "delay": 0.5019214153289795
-    },
-    {
-        "type": "keypress",
-        "key": "'j'",
-        "delay": 0.3300130367279053
-    },
-    {
-        "type": "keypress",
-        "key": "'p'",
-        "delay": 0.15681004524230957
-    },
-    {
-        "type": "keypress",
-        "key": "'g'",
-        "delay": 0.09424567222595215
-    },
-    {
-        "type": "keypress",
-        "key": "Key.enter",
-        "delay": 0.9914472103118896
-    }
+  {
+    "type": "click",
+    "x": 42,
+    "y": 45,
+    "button": "Button.left",
+    "delay": 1.6782102584838867,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 84,
+    "y": 453,
+    "button": "Button.left",
+    "delay": 1.8515267372131348,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "click",
+    "x": 834,
+    "y": 730,
+    "button": "Button.left",
+    "delay": 3.536071538925171,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "keypress",
+    "key": "Key.end",
+    "delay": 1.57645583152771
+  },
+  {
+    "type": "keypress",
+    "key": "Key.enter",
+    "delay": 1.0240180492401123
+  },
+  {
+    "type": "click",
+    "x": 848,
+    "y": 711,
+    "button": "Button.left",
+    "delay": 2.2182650566101074,
+    "use_image_search": false,
+    "image_path": "",
+    "x_offset": 0,
+    "y_offset": 0,
+    "pre_click_condition": "None",
+    "pre_click_images": []
+  },
+  {
+    "type": "keypress",
+    "key": "'displacement_contour.jpg'",
+    "delay": 0.09424567222595215
+  },
+  {
+    "type": "keypress",
+    "key": "Key.enter",
+    "delay": 0.9914472103118896
+  }
 ]

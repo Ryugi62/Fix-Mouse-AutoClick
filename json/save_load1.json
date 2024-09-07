@@ -165,47 +165,7 @@
   },
   {
     "type": "keypress",
-    "key": "'l'",
-    "delay": 1.087890863418579
-  },
-  {
-    "type": "keypress",
-    "key": "'o'",
-    "delay": 0.0309603214263916
-  },
-  {
-    "type": "keypress",
-    "key": "'a'",
-    "delay": 0.031633853912353516
-  },
-  {
-    "type": "keypress",
-    "key": "'d'",
-    "delay": 0.03127312660217285
-  },
-  {
-    "type": "keypress",
-    "key": "'1'",
-    "delay": 0.046866655349731445
-  },
-  {
-    "type": "keypress",
-    "key": "'.'",
-    "delay": 0.2993013858795166
-  },
-  {
-    "type": "keypress",
-    "key": "'j'",
-    "delay": 0.23710870742797852
-  },
-  {
-    "type": "keypress",
-    "key": "'p'",
-    "delay": 0.1253368854522705
-  },
-  {
-    "type": "keypress",
-    "key": "'g'",
+    "key": "'load1.jpg'",
     "delay": 0.11033821105957031
   },
   {

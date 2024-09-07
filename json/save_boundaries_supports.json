@@ -148,72 +148,7 @@
   },
   {
     "type": "keypress",
-    "key": "'b'",
-    "delay": 0.8965163230895996
-  },
-  {
-    "type": "keypress",
-    "key": "'o'",
-    "delay": 0.031348466873168945
-  },
-  {
-    "type": "keypress",
-    "key": "'u'",
-    "delay": 0.015623331069946289
-  },
-  {
-    "type": "keypress",
-    "key": "'n'",
-    "delay": 0.0949242115020752
-  },
-  {
-    "type": "keypress",
-    "key": "'d'",
-    "delay": 0.015324115753173828
-  },
-  {
-    "type": "keypress",
-    "key": "'a'",
-    "delay": 0.015592813491821289
-  },
-  {
-    "type": "keypress",
-    "key": "'r'",
-    "delay": 0.03124213218688965
-  },
-  {
-    "type": "keypress",
-    "key": "'i'",
-    "delay": 0.031662702560424805
-  },
-  {
-    "type": "keypress",
-    "key": "'e'",
-    "delay": 0.031244754791259766
-  },
-  {
-    "type": "keypress",
-    "key": "'s'",
-    "delay": 0.04686307907104492
-  },
-  {
-    "type": "keypress",
-    "key": "'.'",
-    "delay": 0.4253227710723877
-  },
-  {
-    "type": "keypress",
-    "key": "'j'",
-    "delay": 0.22035479545593262
-  },
-  {
-    "type": "keypress",
-    "key": "'p'",
-    "delay": 0.12567448616027832
-  },
-  {
-    "type": "keypress",
-    "key": "'g'",
+    "key": "'boundaries.jpg'",
     "delay": 0.10979247093200684
   },
   {

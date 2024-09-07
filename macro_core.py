@@ -218,6 +218,12 @@ class AutomationMacro:
             else:
                 # 문자열로 입력된 키를 각각 입력
                 key_str = key.strip("'")
+
+                # .jpg 로 끝나면 프로그램의 위치를 더해준다.
+                path = os.path.dirname(os.path.abspath(__file__))
+                if key_str.endswith(".jpg"):
+                    key_str = os.path.join(path, key_str)
+
                 for char in key_str:
                     keyboard_controller.press(char)
                     keyboard_controller.release(char)

@@ -100,62 +100,7 @@
   },
   {
     "type": "keypress",
-    "key": "'i'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'n'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'a'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'c'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'t'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'i'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'v'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'e'",
-    "delay": 1.084599494934082
-  },
-  {
-    "type": "keypress",
-    "key": "'.'",
-    "delay": 0.18793201446533203
-  },
-  {
-    "type": "keypress",
-    "key": "'j'",
-    "delay": 0.2830672264099121
-  },
-  {
-    "type": "keypress",
-    "key": "'p'",
-    "delay": 0.23650860786437988
-  },
-  {
-    "type": "keypress",
-    "key": "'g'",
+    "key": "'inactive_dummy.jpg'",
     "delay": 0.1890420913696289
   },
   {
