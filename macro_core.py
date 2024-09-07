@@ -4,6 +4,7 @@ import time
 import cv2
 import numpy as np
 import pyautogui
+import pyperclip
 from pynput import mouse, keyboard
 from tkinter import messagebox
 
@@ -46,6 +47,10 @@ class AutomationMacro:
 
     def play_recording(self):
         try:
+            # 만약 파일 이름에 "copy_*" 가 포함되어 있다면, 클립보드를 비운 후 모든 action이 끝나면 클립보드에 저장된 내용을 __file__, results 폴더에 저장한다.
+            if "copy_" in file_path:
+                pyperclip.copy("")
+
             for action in self.actions:
                 if not self.check_pre_click_conditions(action):
                     continue  # 조건이 만족되지 않으면 클릭 생략
@@ -54,6 +59,13 @@ class AutomationMacro:
                     self.execute_click_action(action)
                 elif action["type"] == "keypress":
                     self.simulate_keypress(action["key"])
+
+            # 모든 action이 끝나면 클립보드에 저장된 내용을 __file__, results 폴더에 저장한다.
+            if "copy_" in file_path:
+                path = os.path.dirname(os.path.abspath(__file__))
+                with open(os.path.join(path, "results", file_path), "w") as f:
+                    f.write(pyperclip.paste())
+
         except Exception as e:
             print(f"Error during playback: {e}")
             messagebox.showerror("Error", f"An error occurred during playback: {e}")
