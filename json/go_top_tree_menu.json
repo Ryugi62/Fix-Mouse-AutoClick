@@ -1,0 +1,35 @@
+[
+    {
+        "type": "click",
+        "x": 181,
+        "y": 219,
+        "button": "Button.left",
+        "delay": 1.7111577987670898,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 317,
+        "y": 263,
+        "button": "Button.right",
+        "delay": 1.586667537689209,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 391,
+        "y": 360,
+        "button": "Button.left",
+        "delay": 1.7155730724334717,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    }
+]

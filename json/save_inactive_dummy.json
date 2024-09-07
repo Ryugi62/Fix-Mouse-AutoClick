@@ -1,0 +1,135 @@
+[
+    {
+        "type": "click",
+        "x": 41,
+        "y": 238,
+        "button": "Button.right",
+        "delay": 1.4925172328948975,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 108,
+        "y": 253,
+        "button": "Button.left",
+        "delay": 0.8974559307098389,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 144,
+        "y": 800,
+        "button": "Button.right",
+        "delay": 3.5499515533447266,
+        "use_image_search": true,
+        "image_path": "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/dummy.png",
+        "pre_click_condition": "None",
+        "pre_click_images": [
+            ""
+        ]
+    },
+    {
+        "type": "click",
+        "x": 205,
+        "y": 701,
+        "button": "Button.left",
+        "delay": 2.5478358268737793,
+        "use_image_search": true,
+        "image_path": "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/inactive_dummy.png",
+        "pre_click_condition": "None",
+        "pre_click_images": [
+            ""
+        ]
+    },
+    {
+        "type": "click",
+        "x": 46,
+        "y": 50,
+        "button": "Button.left",
+        "delay": 3.1292500495910645,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 81,
+        "y": 451,
+        "button": "Button.left",
+        "delay": 1.4598917961120605,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 850,
+        "y": 733,
+        "button": "Button.left",
+        "delay": 1.6807188987731934,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 831,
+        "y": 826,
+        "button": "Button.left",
+        "delay": 0.8014967441558838,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "click",
+        "x": 844,
+        "y": 711,
+        "button": "Button.left",
+        "delay": 0.6611850261688232,
+        "use_image_search": false,
+        "image_path": "",
+        "pre_click_condition": "None",
+        "pre_click_images": []
+    },
+    {
+        "type": "keypress",
+        "key": "'t'",
+        "delay": 1.084599494934082
+    },
+    {
+        "type": "keypress",
+        "key": "'.'",
+        "delay": 0.18793201446533203
+    },
+    {
+        "type": "keypress",
+        "key": "'j'",
+        "delay": 0.2830672264099121
+    },
+    {
+        "type": "keypress",
+        "key": "'p'",
+        "delay": 0.23650860786437988
+    },
+    {
+        "type": "keypress",
+        "key": "'g'",
+        "delay": 0.1890420913696289
+    },
+    {
+        "type": "keypress",
+        "key": "Key.enter",
+        "delay": 0.3782978057861328
+    }
+]
