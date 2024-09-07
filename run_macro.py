@@ -94,6 +94,12 @@ def run_macro_without_gui(file_path="recorded_actions.json"):
 
     file_paths = [os.path.join(path, "json", file) for file in files]
 
+    # path, results 폴더가 있다면 그 안에 있는 모든 파일을 삭제한다.
+    path = os.path.join(os.path.dirname(__file__), "results")
+    if os.path.exists(path):
+        for file in os.listdir(path):
+            os.remove(os.path.join(path, file))
+
     # GUI 없이 매크로 실행, app 인자로 None 전달
     macro = AutomationMacro(app=None)  # 수정된 부분
     for file_path in file_paths:
