@@ -1,4 +1,5 @@
 # run_macro.py
+import os
 import sys
 from macro_core import AutomationMacro
 from macro_gui import main as gui_main
@@ -93,8 +94,8 @@ def run_macro_without_gui(file_path="recorded_actions.json"):
 
     file_paths = [os.path.join(path, "json", file) for file in files]
 
-    # GUI 없이 매크로 실행
-    macro = AutomationMacro()
+    # GUI 없이 매크로 실행, app 인자로 None 전달
+    macro = AutomationMacro(app=None)  # 수정된 부분
     for file_path in file_paths:
         try:
             macro.load_actions(file_path)

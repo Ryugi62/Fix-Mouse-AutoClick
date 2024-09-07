@@ -411,6 +411,22 @@ class UltraModernMidasLinker(QMainWindow):
         if filename:
             entry.setText(filename)
 
+    def extract_address_from_path(self, solar_path):
+        """
+        solar_path에서 주소를 추출하는 메서드.
+        :param solar_path: 태양광 프로젝트 경로
+        :return: 추출된 주소, 추가 데이터
+        """
+        # 예시 로직: 파일 경로에서 주소 관련 정보 추출
+        # 이 부분은 실제 추출 방식에 맞게 수정이 필요합니다.
+        try:
+            # 간단한 예시로, 경로에서 마지막 디렉토리나 파일명을 추출하는 경우
+            extracted_address = solar_path.split("/")[-1]  # 경로 마지막 부분 추출
+            return extracted_address, None
+        except Exception as e:
+            print(f"Error extracting address from path: {e}")
+            return None, None
+
     def update_information(self):
         self.error = None
         solar_path = self.file_entries["태양광"].text()
