@@ -12,7 +12,17 @@ class MidasFileCreator:
         self.macro = run_macro
 
     def create_midas_data(self, solar_path, building_path, design_path):
-        for path in [solar_path, building_path, design_path]:
+        # 결과 폴더 삭제
+        for folder in ["results_solar", "results_building", "results_design"]:
+            path = os.path.join(os.path.dirname(__file__), folder)
+            if os.path.exists(path):
+                for file in os.listdir(path):
+                    os.remove(os.path.join(path, file))
+                os.rmdir(path)
+
+        # 각 경로에 대해 MIDAS 데이터 생성
+        # for path in [solar_path, building_path, design_path]:
+        for path in [solar_path]:
             mode = (
                 "solar"
                 if solar_path == path
@@ -20,22 +30,20 @@ class MidasFileCreator:
             )
 
             if path is None:
-                print("Path is not specified!")
+                print("경로가 지정되지 않았습니다!")
                 return
 
             process = self.open_midas(path)
 
             if process is None:
-                print("Failed to open Midas Gen.")
+                print("Midas Gen을 열지 못했습니다.")
                 return
 
             self.macro.run_macro_without_gui(mode=mode)
 
             process.terminate()
 
-        print(
-            f"Creating MIDAS data with {solar_path}, {building_path}, {design_path}..."
-        )
+        print(f"{solar_path}, {building_path}, {design_path}로 MIDAS 데이터 생성 중...")
 
     def open_midas(self, file):
         program_name = "MidasGen.exe" if file.endswith(".mgb") else "Design+.exe"
@@ -43,22 +51,22 @@ class MidasFileCreator:
         midas_exe = self.find_midas_exe(program_name)
 
         if midas_exe is None:
-            print(f"{program_name} not found!")
+            print(f"{program_name}을 찾을 수 없습니다!")
             return
 
         try:
             command = [midas_exe, file]
-            print(f"Executing command: {' '.join(command)}")
+            print(f"명령 실행: {' '.join(command)}")
             process = subprocess.Popen(command)
 
-            # 해당 마이다스의 창 이름을 알아내서 self에 저장해야됨
+            # 해당 마이다스 창의 핸들을 저장해야 함
             self.midas_gen_hwnd = None
         except Exception as e:
-            print(f"An unexpected error occurred: {e}")
+            print(f"예기치 않은 오류가 발생했습니다: {e}")
             return
 
-        if not self.wait_for_midas_gen_open(file):
-            print("Failed to open Midas Gen within the expected time.")
+        if not self.wait_for_midas_gen_open(file, timeout=60, mode=mode):
+            print("예상 시간 내에 Midas Gen을 열지 못했습니다.")
             return
 
         return process
@@ -71,18 +79,18 @@ class MidasFileCreator:
                     return os.path.join(root, program_name)
         return None
 
-    def wait_for_midas_gen_open(self, file_path, timeout=60):
+    def wait_for_midas_gen_open(self, file_path, timeout=60, mode="Gen"):
         start_time = time.time()
         while time.time() - start_time < timeout:
             if self.is_midas_gen_open(file_path):
 
-                print("Midas Gen opened successfully.")
+                print("Midas Gen이 성공적으로 열렸습니다.")
                 time.sleep(15)
 
                 self.set_midas_window_size(mode)
 
                 return True
-            print("Waiting for Midas Gen to open...")
+            print("Midas Gen이 열릴 때까지 대기 중...")
             time.sleep(5)
         return False
 
@@ -94,19 +102,19 @@ class MidasFileCreator:
         command = [midas_layout_manager, "Midas Gen", set_file]
 
         try:
-            print(f"Executing command: {' '.join(command)}")
-            # 실행결과
+            print(f"명령 실행: {' '.join(command)}")
+            # 실행 결과
             result = subprocess.run(command, capture_output=True)
             print(result.stdout.decode("utf-8"))
         except Exception as e:
-            print(f"An unexpected error occurred: {e}")
+            print(f"예기치 않은 오류가 발생했습니다: {e}")
         finally:
             pass
 
     def is_midas_gen_open(self, file_path):
         hwnds = self._get_hwnds_by_filepath(file_path)
 
-        # 해당 hwnds의 창 이름 출력
+        # 해당 핸들의 창 이름 출력
         if hwnds:
             print(win32gui.GetWindowText(hwnds[0]))
 

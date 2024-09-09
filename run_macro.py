@@ -1,9 +1,13 @@
 # run_macro.py
+
 import os
 import sys
 import time
+import pyperclip
 from macro_core import AutomationMacro
 from macro_gui import main as gui_main
+from excel_processor import create_temp_excel, set_clipboard_from_excel
+from map_fetcher import fetch_and_save_static_map
 
 
 def run_macro_with_gui():
@@ -244,6 +248,52 @@ def run_macro_without_gui(mode=None):
             print(f"오류가 발생했습니다: {e}")
         finally:
             time.sleep(5)
+
+    # 결과 폴더 이름 변경
+
+    changed_dir = (
+        "results_solar"
+        if mode == "solar"
+        else "results_building" if mode == "building" else "results_design"
+    )
+
+    os.rename(
+        os.path.join(os.path.dirname(__file__), "results"),
+        os.path.join(os.path.dirname(__file__), changed_dir),
+    )
+
+    # Example usage of create_temp_excel function
+    data1_path = os.path.join(
+        os.path.dirname(__file__), changed_dir, "copy_code_checking.txt"
+    )
+    data2_path = os.path.join(
+        os.path.dirname(__file__), changed_dir, "copy_cold_code_checking.txt"
+    )
+    data3_path = os.path.join(
+        os.path.dirname(__file__), changed_dir, "copy_section_table_data.txt"
+    )
+
+    excel_path = os.path.join(os.path.dirname(__file__), "template.xlsm")
+    result_excel_path = os.path.join(
+        os.path.dirname(__file__), changed_dir, f"result.xlsm"
+    )
+
+    # Creates a temporary Excel file by processing data
+    create_temp_excel(data1_path, data2_path, data3_path, excel_path, result_excel_path)
+
+    # Copies data from the created Excel file to the clipboard
+    set_clipboard_from_excel(result_excel_path)
+
+    # 클립보드 내용 출력
+
+    print(f"클립보드 내용: {pyperclip.paste()}")
+
+    # Fetches and saves a satellite image of the specified location
+    fetch_and_save_static_map(
+        latitude,
+        location,
+        os.path.join(os.path.dirname(__file__), changed_dir, "map.jpg"),
+    )
 
 
 if __name__ == "__main__":
