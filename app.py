@@ -22,7 +22,9 @@ from PyQt6.QtGui import QCursor, QColor, QPalette
 import os
 import re
 import pyautogui
-import midas_file_creator
+
+# import midas_file_creator의 CLASS MidasFileCreator 불러오기
+from midas_file_creator import MidasFileCreator
 
 
 # Updated function to extract detailed address information from the path
@@ -508,7 +510,10 @@ class UltraModernMidasLinker(QMainWindow):
         building_path = self.file_entries["건물"].text()
         design_path = self.file_entries["디자인"].text()
 
-        midas_file_creator.create_midas_data(solar_path, building_path, design_path)
+        # def create_midas_data(self, solar_path, building_path, design_path):
+        # MidasFileCreator.create_midas_data(solar_path, building_path, design_path)
+
+        MidasFileCreator().create_midas_data(solar_path, building_path, design_path)
 
         for item in ordered_items:
             if item in self.task_functions:

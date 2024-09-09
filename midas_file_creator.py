@@ -7,97 +7,118 @@ import psutil
 import run_macro
 
 
-def create_midas_data(solar_path, building_path, design_path):
-    macro = run_macro
-    
-    for path in [solar_path, building_path, design_path]:
-        if path is None:
-            print("Path is not specified!")
+class MidasFileCreator:
+    def __init__(self):
+        self.macro = run_macro
+
+    def create_midas_data(self, solar_path, building_path, design_path):
+        for path in [solar_path, building_path, design_path]:
+            if path is None:
+                print("Path is not specified!")
+                return
+
+            process = self.open_midas(path)
+
+            if process is None:
+                print("Failed to open Midas Gen.")
+                return
+
+            self.macro.run_macro_without_gui()
+
+            process.terminate()
+
+        print(
+            f"Creating MIDAS data with {solar_path}, {building_path}, {design_path}..."
+        )
+
+    def open_midas(self, file):
+        program_name = "MidasGen.exe" if file.endswith(".mgb") else "Design+.exe"
+        midas_exe = self.find_midas_exe(program_name)
+
+        if midas_exe is None:
+            print(f"{program_name} not found!")
             return
 
-        process = open_midas(path)
+        try:
+            command = [midas_exe, file]
+            print(f"Executing command: {' '.join(command)}")
+            process = subprocess.Popen(command)
 
-        if process is None:
-            print("Failed to open Midas Gen.")
+            # 해당 마이다스의 창 이름을 알아내서 self에 저장해야됨
+            self.midas_gen_hwnd = None
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
             return
-        
-        # 자동 클릭
-        macro.run_macro_without_gui()
 
-        # 프로세스가 종료
-        process.terminate()  # 프로세스 종료
+        if not self.wait_for_midas_gen_open(file):
+            print("Failed to open Midas Gen within the expected time.")
+            return
 
-    print(f"Creating MIDAS data with {solar_path}, {building_path}, {design_path}...")
+        return process
 
+    def find_midas_exe(self, program_name):
+        search_paths = ["C:\\Program Files", "C:\\Program Files (x86)"]
+        for search_path in search_paths:
+            for root, dirs, files in os.walk(search_path):
+                if program_name in files:
+                    return os.path.join(root, program_name)
+        return None
 
-def open_midas(file):
-    # 파일 확장자에 따라 프로그램 이름을 결정합니다.
-    program_name = "MidasGen.exe" if file.endswith(".mgb") else "Design+.exe"
-    midas_exe = find_midas_exe(program_name)
+    def wait_for_midas_gen_open(self, file_path, timeout=60):
+        start_time = time.time()
+        while time.time() - start_time < timeout:
+            if self.is_midas_gen_open(file_path):
 
-    if midas_exe is None:
-        print(f"{program_name} not found!")
-        return
+                print("Midas Gen opened successfully.")
+                time.sleep(15)
 
-    try:
-        # subprocess.Popen을 사용하여 명령을 비동기로 실행
-        command = [midas_exe, file]
-        print(f"Executing command: {' '.join(command)}")
-        process = subprocess.Popen(command)  # 비동기 실행으로 전환
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-        return
+                self.set_midas_window_size()
 
-    # 프로그램이 열릴 때까지 대기
-    if not wait_for_midas_gen_open(file):
-        print("Failed to open Midas Gen within the expected time.")
-        return
+                return True
+            print("Waiting for Midas Gen to open...")
+            time.sleep(5)
+        return False
 
-    return process
+    def set_midas_window_size(self):
+        midas_layout_manager = os.path.join(
+            os.path.dirname(__file__), "WindowLayoutManager.exe"
+        )
+        command = [midas_layout_manager, "Midas Gen", "midas_gen.ini"]
 
+        try:
+            print(f"Executing command: {' '.join(command)}")
+            # 실행결과
+            result = subprocess.run(command, capture_output=True)
+            print(result.stdout.decode("utf-8"))
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+        finally:
+            pass
 
-def find_midas_exe(program_name):
-    # 특정 경로가 아닌, MidasGen.exe가 있는지 찾기 위한 로직을 단순화
-    search_paths = ["C:\\Program Files", "C:\\Program Files (x86)"]
-    for search_path in search_paths:
-        for root, dirs, files in os.walk(search_path):
-            if program_name in files:
-                return os.path.join(root, program_name)
-    return None
+    def is_midas_gen_open(self, file_path):
+        hwnds = self._get_hwnds_by_filepath(file_path)
 
+        # 해당 hwnds의 창 이름 출력
+        if hwnds:
+            print(win32gui.GetWindowText(hwnds[0]))
 
-def wait_for_midas_gen_open(file_path, timeout=60):
-    start_time = time.time()
-    while time.time() - start_time < timeout:
-        if is_midas_gen_open(file_path):
-            # 클릭을 할 수 있을정도로 제대로 열릴때 까지 대기
-            print("Midas Gen opened successfully.")
-            time.sleep(15)
-            
+        return bool(hwnds)
+
+    def _get_hwnds_by_filepath(self, file_path):
+        hwnds = []
+
+        def callback(hwnd, hwnds):
+            if win32gui.IsWindowVisible(hwnd) and win32gui.IsWindowEnabled(hwnd):
+                _, pid = win32process.GetWindowThreadProcessId(hwnd)
+                try:
+                    process = psutil.Process(pid)
+                    if any(
+                        file_path.lower() in cmd.lower() for cmd in process.cmdline()
+                    ):
+                        hwnds.append(hwnd)
+                except (psutil.AccessDenied, psutil.NoSuchProcess):
+                    pass
             return True
-        print("Waiting for Midas Gen to open...")
-        time.sleep(5)
-    return False
 
-
-def is_midas_gen_open(file_path):
-    hwnds = _get_hwnds_by_filepath(file_path)
-    return bool(hwnds)
-
-
-def _get_hwnds_by_filepath(file_path):
-    hwnds = []
-
-    def callback(hwnd, hwnds):
-        if win32gui.IsWindowVisible(hwnd) and win32gui.IsWindowEnabled(hwnd):
-            _, pid = win32process.GetWindowThreadProcessId(hwnd)
-            try:
-                process = psutil.Process(pid)
-                if any(file_path.lower() in cmd.lower() for cmd in process.cmdline()):
-                    hwnds.append(hwnd)
-            except (psutil.AccessDenied, psutil.NoSuchProcess):
-                pass
-        return True
-
-    win32gui.EnumWindows(callback, hwnds)
-    return hwnds
+        win32gui.EnumWindows(callback, hwnds)
+        return hwnds
