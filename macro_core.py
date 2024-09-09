@@ -81,11 +81,10 @@ class AutomationMacro:
             # 이미지 검색 기능이 활성화된 경우
             if action.get("use_image_search") and action.get("image_path"):
                 location = self.find_image_on_screen(
-                    action["image_path"].split("/")[-1]
+                    action["image_path"].split("/")[-1], action=action
                 )
                 if location is not None:
-                    x, y = location  # 이미지의 중앙 좌표로 설정
-                    # x_offset과 y_offset 값을 추가 또는 감소
+                    x, y = location
                     x += action.get("x_offset", 0)
                     y += action.get("y_offset", 0)
                 else:
@@ -109,12 +108,12 @@ class AutomationMacro:
                 return True
             elif condition == "이미지가 있으면 생략":
                 for image in images:
-                    if self.find_image_on_screen(image) is not None:
+                    if self.find_image_on_screen(image, action) is not None:
                         print(f"Skipping click because {image} is present.")
                         return False
             elif condition == "이미지가 없으면 생략":
                 for image in images:
-                    if self.find_image_on_screen(image) is None:
+                    if self.find_image_on_screen(image, action) is None:
                         print(f"Skipping click because {image} is missing.")
                         return False
             elif condition == "이미지 찾을때 까지 대기":
@@ -122,7 +121,7 @@ class AutomationMacro:
                 while time.time() - start_time < 600:  # 최대 5분 대기
                     try:
                         found = all(
-                            self.find_image_on_screen(image) is not None
+                            self.find_image_on_screen(image, action) is not None
                             for image in images
                         )
                         if found:
@@ -141,7 +140,7 @@ class AutomationMacro:
             messagebox.showerror("Error", f"Error checking pre-click conditions: {e}")
             return False
 
-    def find_image_on_screen(self, image_path):
+    def find_image_on_screen(self, image_path, action=None):
         # 파일 이름만 추출
         image_name = os.path.basename(image_path)
 
@@ -165,8 +164,9 @@ class AutomationMacro:
             result = cv2.matchTemplate(screen_gray, target_image, cv2.TM_CCOEFF_NORMED)
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
 
-            # 매칭 결과가 일정 임계값 이상일 때 위치 반환
-            threshold = 0.94
+            if action is not None:
+                threshold = action.get("match_threshold", 0.9)
+
             if max_val >= threshold:
                 target_height, target_width = target_image.shape
                 center_x = max_loc[0] + target_width // 2
