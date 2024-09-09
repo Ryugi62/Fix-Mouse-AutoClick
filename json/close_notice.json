@@ -1,0 +1,19 @@
+[
+    {
+        "type": "click",
+        "x": 1128,
+        "y": 148,
+        "button": "Button.left",
+        "delay": 1.792851448059082,
+        "use_image_search": true,
+        "image_path": "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/notice.png",
+        "x_offset": 0,
+        "y_offset": 0,
+        "pre_click_condition": "\uc774\ubbf8\uc9c0\uac00 \uc5c6\uc73c\uba74 \uc0dd\ub7b5",
+        "pre_click_images": [
+            "C:/Users/xorjf/Desktop/git/Fix-Mouse-AutoClick/images/notice.png"
+        ],
+        "key": "",
+        "match_threshold": 0.8
+    }
+]
