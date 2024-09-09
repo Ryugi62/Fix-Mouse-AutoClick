@@ -235,6 +235,8 @@ def run_macro_without_gui(mode=None):
     if os.path.exists(path):
         for file in os.listdir(path):
             os.remove(os.path.join(path, file))
+    else:
+        os.mkdir(path)
 
     # GUI 없이 매크로 실행, app 인자로 None 전달
     macro = AutomationMacro(app=None)  # 수정된 부분
