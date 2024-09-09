@@ -13,6 +13,12 @@ class MidasFileCreator:
 
     def create_midas_data(self, solar_path, building_path, design_path):
         for path in [solar_path, building_path, design_path]:
+            mode = (
+                "solar"
+                if solar_path == path
+                else "building" if building_path == path else "design"
+            )
+
             if path is None:
                 print("Path is not specified!")
                 return
@@ -23,7 +29,7 @@ class MidasFileCreator:
                 print("Failed to open Midas Gen.")
                 return
 
-            self.macro.run_macro_without_gui()
+            self.macro.run_macro_without_gui(mode=mode)
 
             process.terminate()
 
@@ -33,6 +39,7 @@ class MidasFileCreator:
 
     def open_midas(self, file):
         program_name = "MidasGen.exe" if file.endswith(".mgb") else "Design+.exe"
+        mode = "Gen" if file.endswith(".mgb") else "Design"
         midas_exe = self.find_midas_exe(program_name)
 
         if midas_exe is None:
@@ -72,18 +79,19 @@ class MidasFileCreator:
                 print("Midas Gen opened successfully.")
                 time.sleep(15)
 
-                self.set_midas_window_size()
+                self.set_midas_window_size(mode)
 
                 return True
             print("Waiting for Midas Gen to open...")
             time.sleep(5)
         return False
 
-    def set_midas_window_size(self):
+    def set_midas_window_size(self, mode="Gen"):
         midas_layout_manager = os.path.join(
             os.path.dirname(__file__), "WindowLayoutManager.exe"
         )
-        command = [midas_layout_manager, "Midas Gen", "midas_gen.ini"]
+        set_file = "midas_gen.ini" if mode == "Gen" else "midas_design.ini"
+        command = [midas_layout_manager, "Midas Gen", set_file]
 
         try:
             print(f"Executing command: {' '.join(command)}")
