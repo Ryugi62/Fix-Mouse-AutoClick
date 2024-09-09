@@ -1,6 +1,7 @@
 # run_macro.py
 import os
 import sys
+import time
 from macro_core import AutomationMacro
 from macro_gui import main as gui_main
 
@@ -110,6 +111,8 @@ def run_macro_without_gui(file_path="recorded_actions.json"):
             print(f"File '{file_path}' not found.")
         except Exception as e:
             print(f"An error occurred: {e}")
+        finally:
+            time.sleep(5)
 
 
 if __name__ == "__main__":
